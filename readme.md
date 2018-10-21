@@ -18,19 +18,22 @@ docker run -d --restart=always -it --name mcpe \
 docker container stop/start/restart/rm mcpe
 ```
 
-## enter&quit the console
+### enter&quit the console
 ```bash
 docker attach mcpe
 ```
 press ctrl + p + q to quit
 do not use ctrl+c or ctrl+d, this wii kill the process
 
-## edit config file
+### edit config file
 ```bash
 docker exec -it mcpe /bin/bash
 vim /mcpe/server.properties
 ```
 type "exit" to exit the shell
 
-## worlds data
-change "/path/to/worlds" to you dir
+## Docker address
+https://cloud.docker.com/repository/docker/lomot/minecraft-bedrock
+
+## github address
+https://github.com/LomotHo/minecraft-bedrock
