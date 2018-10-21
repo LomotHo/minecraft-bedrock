@@ -3,9 +3,11 @@ FROM ubuntu:18.04
 
 # install packages & config docker
 COPY ./profile/sources.list /etc/apt/
-RUN apt-get update && \
-  apt-get install libcurl4 vim tmux -y
 COPY ./profile/.tmux.conf /root
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4 vim tmux && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y autoremove && \
+  DEBIAN_FRONTEND=noninteractive apt-get clean
 
 # config server
 ENV LD_LIBRARY_PATH .

@@ -3,13 +3,13 @@
 # 基于docker的bedrock minecraft PE 服务器
 
 ## 运行服务器
-<!-- 
+
  - 先在服务区上安装docker
 ```bash
 apt install docker
 ```
 
- - 运行服务器 -->
+ - 运行服务器
 ```bash
 docker run -d -it --name mcpe \
   -v /path/to/worlds:/mcpe/worlds \
