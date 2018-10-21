@@ -32,7 +32,7 @@ vim /mcpe/server.properties
 ```
 type "exit" to exit the shell
 
-##bin file from 
+## bin file from 
 https://minecraft.net/en-us/download/server/bedrock/
 
 ## Docker address
