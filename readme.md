@@ -1,4 +1,4 @@
-( [English doc](README.md) )|( [中文文档](README_zh.md) )
+( [English doc](/blob/master/README.md) )|( [中文文档](/blob/master/README_zh.md) )
 
 ## run a server
 ```bash
