@@ -1,5 +1,7 @@
 ( [English doc](https://github.com/LomotHo/minecraft-bedrock) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
 
+# a bedrock minecraft PE Server on docker
+
 ## run a server
 ```bash
 docker run -d -it --name mcpe \
