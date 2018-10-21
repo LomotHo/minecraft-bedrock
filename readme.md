@@ -1,4 +1,4 @@
-( [English doc](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme.md) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
+( [English doc](https://github.com/LomotHo/minecraft-bedrock) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
 
 ## run a server
 ```bash
