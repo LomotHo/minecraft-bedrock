@@ -6,7 +6,7 @@
 
  - 先在服务区上安装docker
 ```bash
-apt install docker
+apt install docker.io
 ```
 
  - 运行服务器
