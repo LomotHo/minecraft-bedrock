@@ -1,5 +1,3 @@
-( [English doc](https://github.com/LomotHo/minecraft-bedrock) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
-
 # 基于docker的bedrock minecraft PE 服务器
 
 ## 运行服务器
