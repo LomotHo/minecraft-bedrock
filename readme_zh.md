@@ -1,7 +1,7 @@
 [English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
 
 # 基于docker的bedrock minecraft PE 服务器
-当前版本: 1.7.0.13 镜像版本: lomot/minecraft-bedrock:1.7.0-1
+当前服务器核心版本: 1.7.0.13 镜像版本: lomot/minecraft-bedrock:1.7.0-1
 ---
 
 ## 快速开启服务器
