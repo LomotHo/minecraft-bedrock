@@ -1,4 +1,4 @@
-( [English doc](https://github.com/LomotHo/minecraft-bedrock) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
+[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
 
 # a bedrock minecraft PE Server on docker
 this is for image lomot/minecraft-bedrock:1.7.0
