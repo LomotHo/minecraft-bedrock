@@ -1,7 +1,7 @@
 ( [English doc](https://github.com/LomotHo/minecraft-bedrock) )|( [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) )
 
 # a bedrock minecraft PE Server on docker
-
+this is for image lomot/minecraft-bedrock:1.7.0
 ## run a server
 ```bash
 docker run -d -it --name mcpe \
