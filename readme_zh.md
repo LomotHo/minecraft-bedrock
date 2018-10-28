@@ -22,18 +22,16 @@ mkdir -p /opt/mcpe-data
 ```
 
 ### 开启服务器
-
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.7.0-1
 ```
-把命令里面的 "/opt/mcpe-data" 换成你自己的目录，如果发现目录写错了或者要换目录可以先执行
+把命令里面的 "/opt/mcpe-data" 换成你自己的目录，如果发现目录写错了或者要换目录可以先执行下面的命令关闭并停止刚刚开启的服务器，然后再重新开启服务器
 ```bash
 docker stop mcpe
 docker rm mcpe
 ```
-再重新开启服务器
 
 ## 服务器管理
 
@@ -48,11 +46,12 @@ docker attach mcpe
 ```bash
 docker stop/start/restart/rm mcpe
 ```
-
+删除服务器后 /opt/mcpe-data里面的数据不会丢失
 ### 向容器复制文件
 ```bash
 docker cp /path/to/xxx mcpe:/mcpe/server
 ```
+容器内服务器目录为/mcpe/server
 
 ### 进入容器
 ```bash
