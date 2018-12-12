@@ -1,7 +1,7 @@
 [English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
 
 # 基于docker的bedrock minecraft PE 服务器
-当前服务器核心版本: 1.7.0.13 镜像版本: lomot/minecraft-bedrock:1.7.0-1
+当前服务器核心版本: 1.8.0.24 镜像版本: lomot/minecraft-bedrock:1.8.0-0
 ---
 
 ## 快速开启服务器
@@ -26,7 +26,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.7.0-1
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并停止刚刚开启的服务器，然后再重新开启服务器
 ```bash
@@ -63,7 +63,7 @@ docker exec -it mcpe /bin/bash
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.7.0-1
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
 
 执行上面的命令可以进入服务器容器，并且开启一个shell，这个时候就可以编辑文件了
