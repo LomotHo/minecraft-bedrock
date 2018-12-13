@@ -33,6 +33,26 @@ docker run -d -it --name mcpe \
 docker stop mcpe
 docker rm mcpe
 ```
+## 服务器升级
+### 首先备份一下数据
+
+1. 就是将"/opt/mcpe-data"这个文件夹备份一下
+```bash
+cp /opt/mcpe-data /opt/mcpe-data.bak
+```
+
+2. 然后删除容器
+```bash
+docker rm mcpe
+```
+3. 开启新版的容器
+```bash
+docker run -d -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
+```
+记得把命令里面的 "/opt/mcpe-data" 换成你自己的目录
+结束
 
 ## 服务器管理
 
