@@ -33,20 +33,21 @@ docker run -d -it --name mcpe \
 docker stop mcpe
 docker rm mcpe
 ```
-## 服务器升级
-### 首先备份一下数据
 
-1. 就是将"/opt/mcpe-data"这个文件夹备份一下
+### 服务器升级
+ 1. 首先备份一下数据
+
+就是将"/opt/mcpe-data"这个文件夹备份一下
 ```bash
 cp /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
-2. 然后删除容器
+ 2. 然后删除容器
 ```bash
 docker container stop mcpe
 docker container rm mcpe
 ```
-3. 开启新版的容器
+ 3. 开启新版的容器
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
