@@ -81,15 +81,15 @@ docker cp /path/to/xxx mcpe:/mcpe/server
 docker exec -it mcpe /bin/bash
 ```
 
+执行上面的命令可以进入服务器容器，并且开启一个shell，这个时候就可以编辑文件了
+在shell中输入 "exit" 可以退出
+
 ### 崩溃自动重启的方式开启服务器
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
-
-执行上面的命令可以进入服务器容器，并且开启一个shell，这个时候就可以编辑文件了
-在shell中输入 "exit" 可以退出
 
 ## 服务器二进制文件
 https://minecraft.net/en-us/download/server/bedrock/
