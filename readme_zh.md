@@ -43,6 +43,7 @@ cp /opt/mcpe-data /opt/mcpe-data.bak
 
 2. 然后删除容器
 ```bash
+docker container stop mcpe
 docker container rm mcpe
 ```
 3. 开启新版的容器
