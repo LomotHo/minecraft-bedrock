@@ -21,7 +21,7 @@ apt install docker.io
 mkdir -p /opt/mcpe-data
 ```
 
-### 开启服务器
+### 部署服务器
 把命令里面的 "/opt/mcpe-data" 换成你自己的目录
 ```bash
 docker run -d -it --name mcpe \
