@@ -1,21 +1,26 @@
 ##################  for dev  #########################
-FROM alpine:latest as builder
+FROM lomot/minecraft-bedrock:alpine-m as builder
 
 # config server
-ENV LD_LIBRARY_PATH . \
- SERVER_HOME="/mcpe" \
- SERVER_PATH="/mcpe/server" \
- DEFAULT_CONFIG_PATH="/mcpe/default-config" \
- DATA_PATH="/data"
+ENV LD_LIBRARY_PATH . 
+ENV SERVER_HOME="/mcpe" \
+  SERVER_PATH="/mcpe/server" \
+  SCRIPT_PATH="/mcpe/script" \
+  DEFAULT_CONFIG_PATH="/mcpe/default-config" \
+  DATA_PATH="/data"
 
-ADD https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip /opt
+# COPY https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip /root
+
 # 解压并复制
-RUN apk --no-cache add unzip \
-  unzip /opt/bedrock-server-1.8.0.24.zip /opt/server
+RUN mkdir -p $SERVER_PATH && \
+  # wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip -O /tmp/bedrock.zip 2>/dev/null && \
+  wget https://lomot.f3322.net/f/6d9aed8604e04e2f9f25/?dl=1 -O /tmp/bedrock.zip 2>/dev/null && \
+  unzip /tmp/bedrock.zip -d $SERVER_PATH && \
+  rm $SERVER_PATH/permissions.json $SERVER_PATH/server.properties $SERVER_PATH/whitelist.json
 
-# 未完成
-COPY ./server $SERVER_PATH
 COPY ./profile/mcpe $DEFAULT_CONFIG_PATH
+COPY ./script $SCRIPT_PATH
+
 
 ##################  for relaese  #########################
 FROM ubuntu:18.04 as production
@@ -30,18 +35,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 ###########################################
 
 # config server
-ENV LD_LIBRARY_PATH . \
-  SERVER_HOME="/mcpe" \
+ENV LD_LIBRARY_PATH . 
+ENV SERVER_HOME="/mcpe" \
   SERVER_PATH="/mcpe/server" \
+  SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
 
-# COPY ./server $SERVER_PATH
-# COPY ./profile/mcpe $DEFAULT_CONFIG_PATH
-WORKDIR $${SERVER_PATH}
 COPY --from=0 $SERVER_HOME $SERVER_HOME
 
+WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
 # RUN 
-CMD ["/mcpe/server/start.sh"]
+CMD ["/mcpe/script/start.sh"]
