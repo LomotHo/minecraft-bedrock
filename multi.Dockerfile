@@ -9,8 +9,6 @@ ENV SERVER_HOME="/mcpe" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
 
-# COPY https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip /root
-
 # 解压并复制
 RUN apk --no-cache add unzip curl wget && \
   mkdir -p $SERVER_PATH && \
