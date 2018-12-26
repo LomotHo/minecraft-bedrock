@@ -11,10 +11,10 @@ ENV SERVER_HOME="/mcpe" \
 
 COPY ./profile/container/sources.list /etc/apt/
 COPY ./profile/container/.tmux.conf /root
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install libcurl4 tmux unzip wget && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y autoremove && \
-  DEBIAN_FRONTEND=noninteractive apt-get clean && \
+RUN apt-get update && \
+ apt-get -y install libcurl4 tmux unzip wget && \
+ apt-get -y autoremove && \
+ apt-get clean && \
   mkdir -p $SERVER_PATH && \
   wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \

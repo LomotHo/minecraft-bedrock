@@ -3,7 +3,7 @@ version: '3'
 services:
    mcpe: # container name 
       build: .
-      image: minecraft-bedrock
+      image: lomot/minecraft-bedrock
       ports:
          - 19132:19132 
       volumes:
