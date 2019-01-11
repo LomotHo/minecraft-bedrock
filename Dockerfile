@@ -12,7 +12,7 @@ ENV SERVER_HOME="/mcpe" \
 # unzip pack
 RUN apk --no-cache add unzip curl wget && \
   mkdir -p $SERVER_PATH && \
-  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip -O /tmp/bedrock.zip 2>/dev/null && \
+  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \
   rm $SERVER_PATH/permissions.json $SERVER_PATH/server.properties $SERVER_PATH/whitelist.json
 

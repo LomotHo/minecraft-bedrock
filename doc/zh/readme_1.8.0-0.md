@@ -1,7 +1,7 @@
-[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
+[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [1.7.0](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
 
 # 基于docker的bedrock minecraft PE 服务器
-当前服务器核心版本: 1.8.0.24 镜像版本: lomot/minecraft-bedrock:1.8.1-0
+当前服务器核心版本: 1.8.0.24 镜像版本: lomot/minecraft-bedrock:1.8.0-0
 ---
 
 ## 快速开启服务器
@@ -26,7 +26,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并停止刚刚开启的服务器，然后再重新开启服务器
 ```bash
@@ -51,7 +51,7 @@ docker container rm mcpe
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
 记得把命令里面的 "/opt/mcpe-data" 换成你自己的目录
 结束
@@ -88,7 +88,7 @@ docker exec -it mcpe /bin/bash
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
 ```
 
 ## 服务器二进制文件

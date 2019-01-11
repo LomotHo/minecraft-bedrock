@@ -1,5 +1,5 @@
 ##################  for dev  #########################
-FROM lomot/linuxbase-dev:18.04
+FROM lomot/ubuntubase-dev:18.04 
 
 # config server
 ENV LD_LIBRARY_PATH .
@@ -16,7 +16,7 @@ RUN apt-get update && \
  apt-get -y autoremove && \
  apt-get clean && \
   mkdir -p $SERVER_PATH && \
-  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.0.24.zip -O /tmp/bedrock.zip 2>/dev/null && \
+  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \
   rm $SERVER_PATH/permissions.json $SERVER_PATH/server.properties $SERVER_PATH/whitelist.json
 

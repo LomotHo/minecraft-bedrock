@@ -1,7 +1,7 @@
-[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
+[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [1.8.0-0](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.8.0-0.md)
 
 # a bedrock minecraft PE Server on docker
-this doc is for image lomot/minecraft-bedrock:1.8.0-0
+this doc is for image lomot/minecraft-bedrock:1.8.1-0
 
 ## start a server quickly
 ### prepare
@@ -22,7 +22,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 
 ## manage the server
@@ -42,7 +42,7 @@ docker container stop/start/restart/rm mcpe
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.0-0
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 
 ## bin file from 
