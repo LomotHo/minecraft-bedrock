@@ -91,6 +91,9 @@ docker run -d --restart=on-failure:5 -it --name mcpe \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 
+## 问题反馈QQ群
+667224193
+
 ## 服务器二进制文件
 https://minecraft.net/en-us/download/server/bedrock/
 
