@@ -14,7 +14,7 @@
 apt install docker.io
 ```
 
-此处附上docker_CE(社区版)官方中文安装文档：
+此处附上docker-ce(社区版)官方中文安装文档：
 [docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/)
 
  2. 创建服务器数据目录
