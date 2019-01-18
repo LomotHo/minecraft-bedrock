@@ -9,29 +9,34 @@
 ### 准备工作
  1. 先在服务器上安装docker
  
-这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
 ```bash
-apt install docker.io
+curl -sSL https://get.daocloud.io/docker | sh
 ```
+此脚本适用于Ubuntu，Debian,Centos等大部分Linux
 
+<!-- 这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
+apt install docker.io
 此处附上docker-ce(社区版)官方中文安装文档：
-[docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/)
+[docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/) -->
 
  2. 创建服务器数据目录
 
 数据目录用于存放地图资料，配置文件，包括ops.json, permissions.json, server.properties, whitelist.json, worlds, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以/opt/mcpe-data为例
+
 ```bash
 mkdir -p /opt/mcpe-data
 ```
 
 ### 部署服务器
 把命令里面的 "/opt/mcpe-data" 换成你自己的目录
+
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
+
 ```bash
 docker stop mcpe
 docker rm mcpe
@@ -41,16 +46,19 @@ docker rm mcpe
  1. 首先备份一下数据
 
 就是将"/opt/mcpe-data"这个文件夹备份一下
+
 ```bash
 cp /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
  2. 然后删除容器
+
 ```bash
 docker container stop mcpe
 docker container rm mcpe
 ```
  3. 开启新版的容器
+
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
@@ -62,6 +70,7 @@ docker run -d -it --name mcpe \
 ## 服务器管理
 
 ### 进入、退出游戏控制台
+
 ```bash
 docker attach mcpe
 ```
@@ -69,17 +78,20 @@ docker attach mcpe
 不要用ctrl+c 或者 ctrl+d，不然服务会关闭
 
 ### 手动 关闭/开启/重启/删除 服务器
+
 ```bash
 docker stop/start/restart/rm mcpe
 ```
 删除服务器后 /opt/mcpe-data里面的数据不会丢失
 ### 向容器复制文件
+
 ```bash
 docker cp /path/to/xxx mcpe:/mcpe/server
 ```
 容器内服务器目录为/mcpe/server
 
 ### 进入容器
+
 ```bash
 docker exec -it mcpe /bin/bash
 ```
@@ -88,6 +100,7 @@ docker exec -it mcpe /bin/bash
 在shell中输入 "exit" 可以退出
 
 ### 崩溃自动重启的方式开启服务器
+
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
