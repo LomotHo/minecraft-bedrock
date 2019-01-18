@@ -11,8 +11,8 @@
  
 ```bash
 curl -sSL https://get.daocloud.io/docker | sh
+#此脚本适用于Ubuntu，Debian,Centos等大部分Linux
 ```
-此脚本适用于Ubuntu，Debian,Centos等大部分Linux
 
 <!-- 这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
 apt install docker.io
