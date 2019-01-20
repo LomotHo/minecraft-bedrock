@@ -42,6 +42,13 @@ docker stop mcpe
 docker rm mcpe
 ```
 
+### 减少网络性能损耗
+docker的网络性能损失主要是由于桥接网络造成的，把参数```-p 19132:19132/udp```去掉，加上```--net=host```就能解决问题。
+
+```bash
+docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft-bedrock:1.8.1-0
+```
+
 ### 服务器升级
  1. 首先备份一下数据
 
