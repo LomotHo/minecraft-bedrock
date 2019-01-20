@@ -31,9 +31,7 @@ mkdir -p /opt/mcpe-data
 把命令里面的 "/opt/mcpe-data" 换成你自己的目录
 
 ```bash
-docker run -d -it --name mcpe \
-  -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
+docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 
@@ -67,9 +65,7 @@ docker container rm mcpe
  3. 开启新版的容器
 
 ```bash
-docker run -d -it --name mcpe \
-  -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
+docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.8.1-0
 ```
 记得把命令里面的 "/opt/mcpe-data" 换成你自己的目录
 结束
