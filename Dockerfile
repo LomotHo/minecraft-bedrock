@@ -40,7 +40,7 @@ ENV SERVER_HOME="/mcpe" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
 
-COPY --from=0 $SERVER_HOME $SERVER_HOME
+COPY --from=builder $SERVER_HOME $SERVER_HOME
 
 WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
