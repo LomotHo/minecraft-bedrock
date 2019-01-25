@@ -26,11 +26,11 @@ FROM ubuntu:18.04 as production
 
 # install packages & config docker
 # COPY ./profile/container/sources.list /etc/apt/
-COPY ./profile/container/.tmux.conf /root
+# COPY ./profile/container/.tmux.conf /root
 RUN apt-get update && \
- apt-get -y install libcurl4 tmux && \
- apt-get -y autoremove && \
- apt-get clean
+  apt-get -y install libcurl4 && \
+  apt-get -y autoremove && \
+  apt-get clean
 ###########################################
 
 # config server
