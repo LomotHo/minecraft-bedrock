@@ -12,11 +12,12 @@ ENV SERVER_HOME="/mcpe" \
 COPY ./profile/container/sources.list /etc/apt/
 COPY ./profile/container/.tmux.conf /root
 RUN apt-get update && \
- apt-get -y install libcurl4 tmux unzip wget && \
- apt-get -y autoremove && \
- apt-get clean && \
-  mkdir -p $SERVER_PATH && \
-  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
+  apt-get -y install libcurl4 tmux unzip wget && \
+  apt-get -y autoremove && \
+  apt-get clean && \
+  mkdir -p $SERVER_PATH
+
+RUN wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \
   rm $SERVER_PATH/permissions.json $SERVER_PATH/server.properties $SERVER_PATH/whitelist.json
 
