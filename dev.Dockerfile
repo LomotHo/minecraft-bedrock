@@ -8,14 +8,10 @@ ENV SERVER_HOME="/mcpe" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
+ENV CORE_VERSION="1.8.1.2" \
+  CONTAINER_VERSION="1.8.1.2-r2"
 
-COPY ./profile/container/sources.list /etc/apt/
-COPY ./profile/container/.tmux.conf /root
-RUN apt-get update && \
-  apt-get -y install libcurl4 tmux unzip wget && \
-  apt-get -y autoremove && \
-  apt-get clean && \
-  mkdir -p $SERVER_PATH
+RUN mkdir -p $SERVER_PATH
 
 RUN wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \
@@ -28,4 +24,4 @@ WORKDIR $SERVER_PATH
 EXPOSE 19132/udp
 
 # RUN 
-CMD ["/mcpe/server/start.sh"]
+CMD ["/mcpe/server/start-dev.sh"]
