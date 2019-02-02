@@ -10,7 +10,14 @@
 
 	```bash
 	curl -sSL https://get.daocloud.io/docker | sh
-	#此脚本适用于Ubuntu，Debian,Centos等大部分Linux
+	# 此脚本适用于Ubuntu，Debian,Centos等大部分Linux
+	```
+
+	```bash
+	# 安装完成后记得打开docker
+	systemctl start docker
+	# 使开启docker开机自启
+	systemctl enable docker
 	```
 
 	<!-- 这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
@@ -123,6 +130,15 @@ docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft
 直接使用```docker stop mcpe```相当于强行退出游戏服务器，有可能损坏数据（但由于mc的数据是区块储存的，一般不会出现这个问题）。
 
 进入游戏控制台：```docker attach mcpe```，然后执行```stop```可以安全地退出容器。
+
+## 部分报错处理
+
+### Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+这个是docker服务没打开，执行
+```bash
+systemctl start docker
+```
+即可
 
 ## 问题反馈QQ群
 667224193
