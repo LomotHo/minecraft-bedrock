@@ -126,6 +126,9 @@ docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft
 
 进入游戏控制台：```docker attach mcpe```，然后执行```stop```可以安全地退出容器。
 
+### 如何查看报错日志
+执行```docker logs mcpe```，可以查看容器的日志，如果服务器开启失败可以用这个命令查看报错日志。
+
 ## 部分报错处理
 
 ### Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
