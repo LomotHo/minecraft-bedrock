@@ -84,7 +84,7 @@ docker stop/start/restart/rm mcpe
 此命令可以用于添加行为包，资源包，或者添加插件（如果有的话）
 
 ```bash
-docker cp /path/to/xxx /mcpe/server
+docker cp /path/to/xxx mcpe:/mcpe/server
 ```
 ```/path/to/xxx```为主机目录，```mcpe:/mcpe/server```为容器内服务器的目录
 
