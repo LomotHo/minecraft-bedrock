@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# SERVER_PATH="/mcpe/server"
-# DEFAULT_CONFIG_PATH="/mcpe/default-config"
-# DATA_PATH="/data"
-
 if [ ! -f "$DATA_PATHPath/ops.json" ]; then
   cp $DEFAULT_CONFIG_PATH/ops.json $DATA_PATH/ops.json
 fi

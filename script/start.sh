@@ -26,4 +26,4 @@ ln -s $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
 ln -s $DATA_PATH/server.properties $SERVER_PATH/server.properties
 ln -s $DATA_PATH/worlds $SERVER_PATH/worlds
 
-$SERVER_PATH/bedrock_server
+exec $SERVER_PATH/bedrock_server
