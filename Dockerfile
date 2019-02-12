@@ -2,18 +2,17 @@
 FROM alpine:latest as builder
 
 # config server
-ENV LD_LIBRARY_PATH . 
 ENV SERVER_HOME="/mcpe" \
   SERVER_PATH="/mcpe/server" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
-
+ENV CORE_VERSION="1.9.0.15" \
+  IMAGE_VERSION="1.9.0.15-r0"
 # unzip pack
 RUN apk --no-cache add unzip curl wget && \
   mkdir -p $SERVER_PATH && \
-  # wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.8.1.2.zip -O /tmp/bedrock.zip 2>/dev/null && \
-  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-1.9.0.15.zip -O /tmp/bedrock.zip 2>/dev/null && \
+  wget https://minecraft.azureedge.net/bin-linux/bedrock-server-$CORE_VERSION.zip -O /tmp/bedrock.zip 2>/dev/null && \
   unzip /tmp/bedrock.zip -d $SERVER_PATH && \
   rm $SERVER_PATH/permissions.json $SERVER_PATH/server.properties $SERVER_PATH/whitelist.json && \
   rm /tmp/bedrock.zip
@@ -41,6 +40,8 @@ ENV SERVER_HOME="/mcpe" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
+ENV CORE_VERSION="1.9.0.15" \
+  IMAGE_VERSION="1.9.0.15-r0"
 
 COPY --from=builder $SERVER_HOME $SERVER_HOME
 

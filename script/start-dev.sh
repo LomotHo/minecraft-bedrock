@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f "$DATA_PATHPath/ops.json" ]; then
+if [ ! -f "$DATA_PATH/ops.json" ]; then
   cp $DEFAULT_CONFIG_PATH/ops.json $DATA_PATH/ops.json
 fi
 
@@ -28,8 +28,8 @@ fi
 # behavior_packs & resource_packs
 if [ ! -d "$DATA_PATH/extra/$CORE_VERSION" ]; then
   mkdir -p $DATA_PATH/extra/$CORE_VERSION
-  mv $SERVER_PATH/behavior_packs $DATA_PATH/extra/$CORE_VERSION
-  mv $SERVER_PATH/resource_packs $DATA_PATH/extra/$CORE_VERSION
+  mv $EXTRA_PATH/behavior_packs $DATA_PATH/extra/$CORE_VERSION
+  mv $EXTRA_PATH/resource_packs $DATA_PATH/extra/$CORE_VERSION
 fi
 
 ln -s $DATA_PATH/ops.json $SERVER_PATH/ops.json
@@ -38,4 +38,7 @@ ln -s $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
 ln -s $DATA_PATH/server.properties $SERVER_PATH/server.properties
 ln -s $DATA_PATH/worlds $SERVER_PATH/worlds
 
-$SERVER_PATH/bedrock_server
+ln -s $DATA_PATH/extra/$CORE_VERSION/behavior_packs $SERVER_PATH/behavior_packs
+ln -s $DATA_PATH/extra/$CORE_VERSION/resource_packs $SERVER_PATH/resource_packs
+
+exec $SERVER_PATH/bedrock_server

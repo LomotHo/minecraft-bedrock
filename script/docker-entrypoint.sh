@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f "$DATA_PATHPath/ops.json" ]; then
+if [ ! -f "$DATA_PATH/ops.json" ]; then
   cp $DEFAULT_CONFIG_PATH/ops.json $DATA_PATH/ops.json
 fi
 
