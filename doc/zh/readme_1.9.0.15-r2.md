@@ -1,8 +1,8 @@
-[English-doc]:https://github.com/LomotHo/minecraft-bedrock
+[English doc]:https://github.com/LomotHo/minecraft-bedrock
 [中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 
-[English-doc] | [中文文档] | [旧版文档] 
+[English doc] | [中文文档] | [旧版文档] 
 
 # 基于docker的bedrock minecraft PE 服务器
 当前服务器核心版本: 1.9.0.15 镜像版本: lomot/minecraft-bedrock:1.9.0.15-r2

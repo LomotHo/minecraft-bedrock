@@ -1,11 +1,8 @@
-[English-doc]:https://github.com/LomotHo/minecraft-bedrock
-[中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
-[旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
-
-[English-doc] | [中文文档] | [旧版文档] 
+[English doc](https://github.com/LomotHo/minecraft-bedrock) | [中文文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md) | [旧版文档](https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/readme_1.7.0.md)
 
 # 基于docker的bedrock minecraft PE 服务器
-当前服务器核心版本: 1.9.0.15 镜像版本: lomot/minecraft-bedrock:1.9.0.15-r2
+当前服务器核心版本: 1.9.0.15 镜像版本: lomot/minecraft-bedrock:1.9.0.15-r0
+---
 
 ## 快速开启服务器
 
@@ -35,7 +32,7 @@
 	把命令里面的```/opt/mcpe-data```换成你自己的目录
 	
 	```bash
-	docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r2
+	docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r0
 	```
 	如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 	
@@ -61,7 +58,7 @@
 3. 开启新版的容器
 
   ```bash
-  docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r2
+  docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r0
   ```
   记得把命令里面的```/opt/mcpe-data```换成你自己的目录
   结束
@@ -109,7 +106,7 @@ docker exec -it mcpe /bin/bash
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r2
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.9.0.15-r0
 ```
 
 如果需要主机开机或重启时自动启动mc容器，将docker设为开机自启即可：
@@ -121,7 +118,7 @@ systemctl enable docker
 docker的网络性能损失主要是由于桥接网络造成的，把参数```-p 19132:19132/udp```去掉，加上```--net=host```就能解决问题。
 
 ```bash
-docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft-bedrock:1.9.0.15-r2
+docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft-bedrock:1.9.0.15-r0
 ```
 
 ### 安全地退出容器
