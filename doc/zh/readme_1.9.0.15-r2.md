@@ -25,7 +25,7 @@
 	
 2. 创建服务器数据目录
 
-	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```world```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以/opt/mcpe-data为例
+	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```worlds```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以```/opt/mcpe-data```为例
 	
 	```bash
 	mkdir -p /opt/mcpe-data

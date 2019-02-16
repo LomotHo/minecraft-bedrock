@@ -17,7 +17,8 @@ apt install docker.io
 
  2. create dir for server data
 
-it contains ops.json, permissions.json, server.properties, whitelist.json, worlds, if you have an empty folder, all the file will be created automatically, "/opt/mcpe-data" for an example
+it contains ```ops.json```,``` permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you have an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
+
 ```bash
 mkdir -p /opt/mcpe-data
 ```
@@ -34,8 +35,8 @@ docker run -d -it --name mcpe \
 ```bash
 docker attach mcpe
 ```
-press ctrl + p + q to quit
-do not use ctrl+c or ctrl+d, this wii kill the process
+press ```ctrl + p + q``` to quit
+do not use ```ctrl+c``` or ```ctrl+d```, this wii kill the process
 
 ### stop/start/restart/rm the server 
 ```bash

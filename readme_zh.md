@@ -1,8 +1,8 @@
-[English-doc]:https://github.com/LomotHo/minecraft-bedrock
+[English doc]:https://github.com/LomotHo/minecraft-bedrock
 [中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 
-[English-doc] | [中文文档] | [旧版文档] 
+[English doc] | [中文文档] | [旧版文档] 
 
 # 基于docker的bedrock minecraft PE 服务器
 当前服务器核心版本: 1.9.0.15 镜像版本: lomot/minecraft-bedrock:1.9.0.15-r2
@@ -25,7 +25,7 @@
 	
 2. 创建服务器数据目录
 
-	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```world```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以/opt/mcpe-data为例
+	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```worlds```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以```/opt/mcpe-data```为例
 	
 	```bash
 	mkdir -p /opt/mcpe-data
@@ -45,7 +45,6 @@
 	```
 
 ## 服务器升级
-
 1. 首先备份一下数据
   就是将```/opt/mcpe-data```这个文件夹备份一下
 	
