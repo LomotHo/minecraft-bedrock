@@ -1,8 +1,11 @@
-[English-doc]:https://github.com/LomotHo/minecraft-bedrock
+[English doc]:https://github.com/LomotHo/minecraft-bedrock
 [中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
-[previous-doc]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/
+[旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
+[Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
 
-[English-doc] | [中文文档] | [previous-doc] 
+[English doc] | [中文文档] | [旧版文档] 
+
+![Docker Pulls] 
 
 # a bedrock minecraft PE Server on docker
 this doc is for image lomot/minecraft-bedrock:1.9.0.15-r2
