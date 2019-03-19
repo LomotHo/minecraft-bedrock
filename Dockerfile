@@ -7,8 +7,8 @@ ENV SERVER_HOME="/mcpe" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
-ENV CORE_VERSION="1.9.0.15" \
-  IMAGE_VERSION="1.9.0.15-r2"
+ENV CORE_VERSION="1.10.0.7" \
+  IMAGE_VERSION="1.10.0.7-r1"
 # unzip pack
 RUN apk --no-cache add unzip curl wget && \
   mkdir -p $SERVER_PATH && \
