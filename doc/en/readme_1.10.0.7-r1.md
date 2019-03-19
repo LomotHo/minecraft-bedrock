@@ -30,7 +30,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -d -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r2
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
 ```
 
 ## manage the server
@@ -50,7 +50,7 @@ docker container stop/start/restart/rm mcpe
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r2
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
 ```
 
 ## bin file from 
