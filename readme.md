@@ -8,7 +8,7 @@
 ![Docker Pulls] 
 
 # a bedrock minecraft PE Server on docker
-this doc is for image lomot/minecraft-bedrock:1.10.0.7-r1
+this doc is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minecraft-bedrock:1.10.0.7-debian-r1
 
 ## start a server quickly
 ### prepare
