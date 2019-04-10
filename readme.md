@@ -68,7 +68,7 @@ do not use ```ctrl+c``` or ```ctrl+d```, this wii kill the process
 docker container stop/start/restart/rm mcpe
 ```
 
-### run the container with auto restart when the server crashed
+### automatically restart when the server crashed
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
