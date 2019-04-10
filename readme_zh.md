@@ -2,10 +2,12 @@
 [中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 [Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
+[How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-[English doc] | [中文文档] | [旧版文档] 
 
-![Docker Pulls] 
+[English doc] | [中文文档] | [旧版文档]
+
+![Docker Pulls]
 
 # 基于docker的bedrock minecraft PE 服务器
 当前服务器核心版本: 1.10.0.7 镜像版本: lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minecraft-bedrock:1.10.0.7-debian-r1
@@ -25,23 +27,23 @@
 	apt install docker.io
 	此处附上docker-ce(社区版)官方中文安装文档：
 	[docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/) -->
-	
+
 2. 创建服务器数据目录
 
 	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```worlds```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以```/opt/mcpe-data```为例
-	
+
 	```bash
 	mkdir -p /opt/mcpe-data
 	```
 
 3. 部署服务器
 	把命令里面的```/opt/mcpe-data```换成你自己的目录
-	
+
 	```bash
 	docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
 	```
 	如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
-	
+
 	```bash
 	docker stop mcpe
 	docker rm mcpe
@@ -51,7 +53,7 @@
 ## 服务器升级
 1. 首先备份一下数据
   就是将```/opt/mcpe-data```这个文件夹备份一下
-	
+
   ```bash
   cp /opt/mcpe-data /opt/mcpe-data.bak
   ```
