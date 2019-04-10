@@ -46,6 +46,7 @@
 	docker stop mcpe
 	docker rm mcpe
 	```
+	如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的配置。
 
 ## 服务器升级
 1. 首先备份一下数据
@@ -126,6 +127,8 @@ docker的网络性能损失主要是由于桥接网络造成的，把参数```-p
 ```bash
 docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft-bedrock:1.10.0.7-r1
 ```
+
+此时如果要更换服务器端口，修改```server.properties```里面的配置即可。
 
 ### 安全地退出容器
 直接使用```docker stop mcpe```相当于强行退出游戏服务器，有可能损坏数据（但由于mc的数据是区块储存的，一般不会出现这个问题）。
