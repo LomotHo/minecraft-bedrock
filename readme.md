@@ -37,6 +37,7 @@ this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minec
 
 ## update the server
 1. backup you data
+
   just backup the folder ```/opt/mcpe-data```
 
   ```bash
