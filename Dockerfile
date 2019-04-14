@@ -26,15 +26,15 @@ FROM ubuntu:18.04 as production
 
 # install packages & config docker
 # COPY ./profile/container/sources.list /etc/apt/
-COPY ./profile/container/.tmux.conf /root
+# COPY ./profile/container/.tmux.conf /root
 RUN apt-get update && \
- apt-get -y install libcurl4 tmux && \
+ apt-get -y install libcurl4 && \
  apt-get -y autoremove && \
  apt-get clean
 ###########################################
 
 # config server
-ENV LD_LIBRARY_PATH . 
+ENV LD_LIBRARY_PATH .
 ENV SERVER_HOME="/mcpe" \
   SERVER_PATH="/mcpe/server" \
   SCRIPT_PATH="/mcpe/script" \
@@ -46,5 +46,5 @@ COPY --from=builder $SERVER_HOME $SERVER_HOME
 WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
-# RUN 
+# RUN
 CMD ["/mcpe/script/start.sh"]

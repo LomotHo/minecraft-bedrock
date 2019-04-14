@@ -21,7 +21,7 @@ this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minec
 
 2. create folder for server data
 
-  this folder is for you map data and some configuration files, it contains ```ops.json```,``` permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
+  this folder is for your map data and some configuration files, it contains ```ops.json```,``` permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
 
   ```bash
   mkdir -p /opt/mcpe-data
