@@ -30,9 +30,9 @@ this documentation is for image lomot/minecraft-bedrock:1.11.0.23-r1, lomot/mine
 3. deploy the server
 
   ```bash
-  docker run -d -it --name mcpe \
-    -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.0.23-r1
+docker run -d --restart=on-failure:5 -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.0.23-r1
   ```
 
 ## update the server
