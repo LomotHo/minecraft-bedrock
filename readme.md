@@ -9,7 +9,7 @@
 ![Docker Pulls]
 
 # a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minecraft-bedrock:1.10.0.7-debian-r1
+this documentation is for image lomot/minecraft-bedrock:1.11.0.23-r1, lomot/minecraft-bedrock:1.11.0.23-debian-r1
 
 ## start a server quickly
 1. install docker on your server
@@ -32,7 +32,7 @@ this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minec
   ```bash
   docker run -d -it --name mcpe \
     -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
+    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.0.23-r1
   ```
 
 ## update the server
@@ -53,7 +53,7 @@ this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minec
 3. start a new version server
 
   ```bash
-  docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
+  docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.11.0.23-r1
   ```
 
 ## manage the server
@@ -73,7 +73,7 @@ docker container stop/start/restart/rm mcpe
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.10.0.7-r1
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.0.23-r1
 ```
 
 ## Binary file from

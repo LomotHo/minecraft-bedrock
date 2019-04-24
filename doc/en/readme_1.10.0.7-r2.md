@@ -9,7 +9,7 @@
 ![Docker Pulls]
 
 # a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r1, lomot/minecraft-bedrock:1.10.0.7-debian-r1
+this documentation is for image lomot/minecraft-bedrock:1.10.0.7-r2, lomot/minecraft-bedrock:1.10.0.7-debian-r2
 
 ## start a server quickly
 1. install docker on your server
