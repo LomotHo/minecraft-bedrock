@@ -31,9 +31,9 @@ this documentation is for image lomot/minecraft-bedrock:1.11.1.2-r1, lomot/minec
 3. deploy the server
 
   ```bash
-docker run -d --restart=on-failure:5 -it --name mcpe \
-  -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+  docker run -d --restart=always -it --name mcpe \
+    -v /opt/mcpe-data:/data \
+    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
   ```
 
 ## update the server
@@ -75,6 +75,14 @@ docker container stop/start/restart/rm mcpe
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
+### change the port
+do NOT change the port configuration of ```server.properties``` file, just change the frist 19132 of parameter```19132:19132/udp```
+
+```bash
+docker run -d --restart=always -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 12345:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
 ```
 
 ### about addon, behavior_packs, resource_packs
