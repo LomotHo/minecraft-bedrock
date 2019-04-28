@@ -7,5 +7,5 @@ services:
       ports:
          - 19132:19132/udp
       volumes:
-         - /Users/lomot/temp/mcpe-data:/data
+         - /opt/mcpe-data:/data
       restart: on-failure:5
