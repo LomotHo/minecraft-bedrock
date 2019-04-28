@@ -3,7 +3,7 @@ version: '3'
 services:
    mcpe: # container name
       build: .
-      image: minecraft-bedrock
+      image: minecraft-bedrock:latest
       ports:
          - 19132:19132/udp
       volumes:
