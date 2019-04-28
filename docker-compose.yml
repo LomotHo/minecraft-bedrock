@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-   mcpe: # container name 
+   mcpe: # container name
       build: .
       image: minecraft-bedrock
       ports:
          - 19132:19132/udp
       volumes:
-         - /Users/lomot/temp/mcpe-data:/data 
-      restart: on-failure:5 
+         - /Users/lomot/temp/mcpe-data:/data
+      restart: on-failure:5
