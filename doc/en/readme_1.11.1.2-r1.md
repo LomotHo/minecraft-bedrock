@@ -3,6 +3,7 @@
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 [Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
+[Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 
 [English doc] | [中文文档] | [旧版文档]
 
@@ -30,9 +31,9 @@ this documentation is for image lomot/minecraft-bedrock:1.11.1.2-r1, lomot/minec
 3. deploy the server
 
   ```bash
-docker run -d --restart=on-failure:5 -it --name mcpe \
-  -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+  docker run -d --restart=always -it --name mcpe \
+    -v /opt/mcpe-data:/data \
+    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
   ```
 
 ## update the server
@@ -74,6 +75,23 @@ docker container stop/start/restart/rm mcpe
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
   -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
+### change the port
+do NOT change the port configuration of ```server.properties``` file, just change the frist 19132 of parameter```19132:19132/udp```
+
+```bash
+docker run -d --restart=always -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 12345:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
+
+### about addon, behavior_packs, resource_packs
+there are too many files about addons to configure, so I made another image, to use this image, you need to manage server folder by yourself, such as update and configuration files, you can dowload the server files here [Minecraft server].
+
+how tu use:
+
+```bash
+docker run -d -restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
 ```
 
 ## Binary file from
