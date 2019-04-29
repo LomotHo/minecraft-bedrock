@@ -41,7 +41,7 @@ docker run -d --restart=always -it --name mcpe \
 just backup the folder ```/opt/mcpe-data```
 
 ```bash
-cp /opt/mcpe-data /opt/mcpe-data.bak
+cp -r /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
 #### 2. exit and delete the old server

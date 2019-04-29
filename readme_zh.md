@@ -57,7 +57,7 @@ docker rm mcpe
 就是将```/opt/mcpe-data```这个文件夹备份一下
 
 ```bash
-cp /opt/mcpe-data /opt/mcpe-data.bak
+cp -r /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
 #### 2. 然后退出并删除容器
