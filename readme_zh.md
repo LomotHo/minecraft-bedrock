@@ -118,7 +118,7 @@ docker exec -it mcpe /bin/bash
 用法:
 
 ```bash
-docker run -d -restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
+docker run -d --restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
 ```
 
 注意: 服务端数据文件夹```/opt/mcpe-data```需要包括完整的数据才能运行, 第一次配置建议从官方网站下载并解压
