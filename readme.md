@@ -13,51 +13,50 @@
 this documentation is for image lomot/minecraft-bedrock:1.11.1.2-r1, lomot/minecraft-bedrock:1.11.1.2-debian-r1
 
 ## start a server quickly
-1. install docker on your server
+#### 1. install docker on your server
 
-  ```bash
-  apt install docker.io
-  ```
-  or you can follow this documentation : [How to install Docker]
+```bash
+apt install docker.io
+```
+or you can follow this documentation : [How to install Docker]
 
-2. create folder for server data
+#### 2. create folder for server data
+this folder is for your map data and some configuration files, it contains ```ops.json```,``` permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
 
-  this folder is for your map data and some configuration files, it contains ```ops.json```,``` permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
+```bash
+mkdir -p /opt/mcpe-data
+```
 
-  ```bash
-  mkdir -p /opt/mcpe-data
-  ```
+#### 3. deploy the server
 
-3. deploy the server
+```bash
+docker run -d --restart=always -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
 
-  ```bash
-  docker run -d --restart=always -it --name mcpe \
-    -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
-  ```
+## upgrade the server
+#### 1. backup you data
 
-## update the server
-1. backup you data
+just backup the folder ```/opt/mcpe-data```
 
-  just backup the folder ```/opt/mcpe-data```
+```bash
+cp /opt/mcpe-data /opt/mcpe-data.bak
+```
 
-  ```bash
-  cp /opt/mcpe-data /opt/mcpe-data.bak
-  ```
+#### 2. exit and delete the old server
 
-2. exit and delete the old server
+```bash
+docker container stop mcpe
+docker container rm mcpe
+```
+#### 3. start a new version server
 
-  ```bash
-  docker container stop mcpe
-  docker container rm mcpe
-  ```
-3. start a new version server
-
-  ```bash
-  docker run -d --restart=always -it --name mcpe \
-    -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
-  ```
+```bash
+docker run -d --restart=always -it --name mcpe \
+  -v /opt/mcpe-data:/data \
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
 
 ## manage the server
 ### enter or quit the game console
