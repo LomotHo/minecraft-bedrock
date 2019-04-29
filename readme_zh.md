@@ -14,67 +14,68 @@
 
 ## 快速开启服务器
 
-1. 先在服务器上安装docker
+#### 1. 先在服务器上安装docker
 
-	```bash
-	curl -sSL https://get.daocloud.io/docker | sh
-	# 此脚本适用于Ubuntu，Debian,Centos等大部分Linux
-	systemctl start docker
-	# 安装完成后记得打开docker
-	```
+```bash
+curl -sSL https://get.daocloud.io/docker | sh
+# 此脚本适用于Ubuntu，Debian,Centos等大部分Linux
+systemctl start docker
+# 安装完成后记得打开docker
+```
 
-	<!-- 这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
-	apt install docker.io
-	此处附上docker-ce(社区版)官方中文安装文档：
-	[docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/) -->
+<!-- 这里仅介绍了Ubuntu14.04以上的版本，其它发行版请自行安装docker
+apt install docker.io
+此处附上docker-ce(社区版)官方中文安装文档：
+[docker安装文档](https://docs.docker-cn.com/engine/installation/linux/docker-ce/ubuntu/) -->
 
-2. 创建服务器数据目录
+#### 2. 创建服务器数据目录
+数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```worlds```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以```/opt/mcpe-data```为例
 
-	数据目录用于存放地图资料，配置文件，包括```ops.json```,``` permissions.json```, ```server.properties```,```whitelist.json```, ```worlds```, 如果数据目录里面没有旧的数据，后面则会自动创建。 目录可以自定，这里以```/opt/mcpe-data```为例
+```bash
+mkdir -p /opt/mcpe-data
+```
 
-	```bash
-	mkdir -p /opt/mcpe-data
-	```
+#### 3. 部署服务器
+把命令里面的```/opt/mcpe-data```换成你自己的目录
 
-3. 部署服务器
-	把命令里面的```/opt/mcpe-data```换成你自己的目录
+```bash
+docker run -d --restart=always -it --name mcpe \
+	-v /opt/mcpe-data:/data \
+	-p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
+如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 
-  ```bash
-  docker run -d --restart=always -it --name mcpe \
-    -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
-  ```
-	如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
-
-	```bash
-	docker stop mcpe
-	docker rm mcpe
-	```
-	如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的配置。
+```bash
+docker stop mcpe
+docker rm mcpe
+```
+如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的配置。
 
 ## 服务器升级
-1. 首先备份一下数据
-  就是将```/opt/mcpe-data```这个文件夹备份一下
 
-  ```bash
-  cp /opt/mcpe-data /opt/mcpe-data.bak
-  ```
+#### 1. 首先备份一下数据
+就是将```/opt/mcpe-data```这个文件夹备份一下
 
-2. 然后退出并删除容器
+```bash
+cp /opt/mcpe-data /opt/mcpe-data.bak
+```
 
-  ```bash
-  docker container stop mcpe
-  docker container rm mcpe
-  ```
-3. 开启新版的容器
+#### 2. 然后退出并删除容器
 
-  ```bash
-  docker run -d --restart=always -it --name mcpe \
-    -v /opt/mcpe-data:/data \
-    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
-  ```
-  记得把命令里面的```/opt/mcpe-data```换成你自己的目录
-  结束
+```bash
+docker container stop mcpe
+docker container rm mcpe
+```
+
+#### 3. 开启新版的容器
+
+```bash
+docker run -d --restart=always -it --name mcpe \
+	-v /opt/mcpe-data:/data \
+	-p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+```
+记得把命令里面的```/opt/mcpe-data```换成你自己的目录
+结束
 
 ## 服务器管理
 
@@ -117,6 +118,7 @@ docker exec -it mcpe /bin/bash
 如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的端口配置。
 
 ### 关于插件
+
 由于插件涉及到的文件比较多, 我为此做了一个新的镜像, 你需要自己管理服务器文件夹, 可以去minecraft官网下载服务端文件: [Minecraft服务端下载]
 
 用法:
