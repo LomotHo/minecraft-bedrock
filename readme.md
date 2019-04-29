@@ -91,7 +91,7 @@ there are too many files about addons to configure, so I made another image, to 
 how tu use:
 
 ```bash
-docker run -d -restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
+docker run -d --restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
 ```
 
 ## Binary file from
