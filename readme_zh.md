@@ -39,9 +39,11 @@
 3. 部署服务器
 	把命令里面的```/opt/mcpe-data```换成你自己的目录
 
-	```bash
-	docker run -d --restart=always -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
-	```
+  ```bash
+  docker run -d --restart=always -it --name mcpe \
+    -v /opt/mcpe-data:/data \
+    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+  ```
 	如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 
 	```bash
@@ -67,7 +69,9 @@
 3. 开启新版的容器
 
   ```bash
-  docker run -d -it --name mcpe -v /opt/mcpe-data:/data -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
+  docker run -d --restart=always -it --name mcpe \
+    -v /opt/mcpe-data:/data \
+    -p 19132:19132/udp lomot/minecraft-bedrock:1.11.1.2-r1
   ```
   记得把命令里面的```/opt/mcpe-data```换成你自己的目录
   结束
@@ -118,7 +122,9 @@ docker exec -it mcpe /bin/bash
 用法:
 
 ```bash
-docker run -d --restart=always -it --name mcpe -v /opt/mcpe-data:/mcpe -p 19132:19132/udp lomot/minecraft-bedrock:base
+docker run -d --restart=always -it --name mcpe \
+  -v /opt/mcpe-data:/mcpe \
+  -p 19132:19132/udp lomot/minecraft-bedrock:base
 ```
 
 注意: 服务端数据文件夹```/opt/mcpe-data```需要包括完整的数据才能运行, 第一次配置建议从官方网站下载并解压
