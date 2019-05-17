@@ -10,8 +10,8 @@ ENV SERVER_HOME="/mcpe" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   EXTRA_PATH="/mcpe/extra" \
   DATA_PATH="/data"
-ENV CORE_VERSION="1.11.1.2" \
-  IMAGE_VERSION="1.11.1.2-r1"
+ENV CORE_VERSION="1.11.2.1" \
+  IMAGE_VERSION="1.11.2.1-r1"
 
 RUN mkdir -p $SERVER_PATH
 
