@@ -7,8 +7,8 @@ ENV SERVER_HOME="/mcpe" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
-ENV CORE_VERSION="1.11.2.1" \
-  IMAGE_VERSION="1.11.2.1-debian-r1"
+ENV CORE_VERSION="1.11.4.2" \
+  IMAGE_VERSION="1.11.4.2-debian-r1"
 # unzip pack
 RUN apk --no-cache add unzip curl wget && \
   mkdir -p $SERVER_PATH && \
