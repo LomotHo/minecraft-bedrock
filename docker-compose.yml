@@ -8,4 +8,6 @@ services:
          - 19132:19132/udp
       volumes:
          - /opt/mcpe-data:/data
-      restart: on-failure:5
+      restart: always
+      stdin_open: true
+      tty: true
