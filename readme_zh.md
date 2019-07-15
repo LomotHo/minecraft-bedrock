@@ -39,9 +39,9 @@ mkdir -p /opt/mcpe-data
 把命令里面的```/opt/mcpe-data```换成你自己的目录
 
 ```bash
-docker run -d --restart=always -it --name mcpe \
+docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.12.0.28-r1
+  lomot/minecraft-bedrock:1.12.0.28-r1
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 
@@ -49,33 +49,34 @@ docker run -d --restart=always -it --name mcpe \
 docker stop mcpe
 docker rm mcpe
 ```
-如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的配置。
+
+如果要更换服务器端口，修改 ```server.properties``` 里面的 ```server-port``` 并执行 ```docker restart mcpe``` 重启服务器即可。
+
 
 ## 服务器升级
 
-#### 1. 首先备份一下数据
+#### 1. 备份一下数据
 就是将```/opt/mcpe-data```这个文件夹备份一下
 
 ```bash
 cp -r /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
-#### 2. 然后退出并删除容器
+#### 2. 退出并删除容器
 
 ```bash
-docker container stop mcpe
-docker container rm mcpe
+docker stop mcpe
+docker rm mcpe
 ```
 
 #### 3. 开启新版的容器
 
 ```bash
-docker run -d --restart=always -it --name mcpe \
+docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.12.0.28-r1
+  lomot/minecraft-bedrock:1.12.0.28-r1
 ```
 记得把命令里面的```/opt/mcpe-data```换成你自己的目录
-结束
 
 ## 服务器管理
 
@@ -94,13 +95,8 @@ docker stop/start/restart/rm mcpe
 ```
 删除服务器后```/opt/mcpe-data```里面的数据不会丢失
 
-### 向容器复制文件
-此命令可以用于添加行为包，资源包，或者添加插件（如果有的话）
 
-```bash
-docker cp /path/to/xxx mcpe:/mcpe/server
-```
-```/path/to/xxx```为主机目录，```mcpe:/mcpe/server```为容器内服务器的目录
+## 进阶选项
 
 ### 进入容器
 
@@ -112,47 +108,37 @@ docker exec -it mcpe /bin/bash
 
 在shell中输入```exit```可以退出
 
-## 进阶选项
+### 向容器复制文件
+此命令可以用于添加行为包，资源包，或者添加插件（如果有的话）
 
-### 修改端口
-如果要更换服务器端口，直接把上面命令里面的```19132:19132/udp```的第一个```19132```换成你自己的端口就行了，不需要改```server.properties```里面的端口配置。
+```bash
+docker cp /path/to/xxx mcpe:/mcpe/server
+```
 
-### 关于插件
+```/path/to/xxx```为主机目录，```mcpe:/mcpe/server```为容器内服务器的目录
 
-由于插件涉及到的文件比较多, 我为此做了一个新的镜像, 你需要自己管理服务器文件夹, 可以去minecraft官网下载服务端文件: [Minecraft服务端下载]
+### 关于行为包，资源包，插件
+
+由于插件涉及到的文件比较多, 我为此做了一个新的镜像, 这个镜像需要你自己管理服务器文件夹, 可以去minecraft官网下载服务端文件: [Minecraft服务端下载]
 
 用法:
 
 ```bash
-docker run -d --restart=always -it --name mcpe \
+docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/mcpe \
-  -p 19132:19132/udp lomot/minecraft-bedrock:base
+  lomot/minecraft-bedrock:base
 ```
 
-注意: 服务端数据文件夹```/opt/mcpe-data```需要包括完整的数据才能运行, 第一次配置建议从官方网站下载并解压
+注意: 服务端数据文件夹```/opt/mcpe-data```需要包括完整的服务器文件才能运行, 第一次配置建议从官方网站下载并解压
 
-### 以自动重启的方式开启服务器
-加上```--restart=on-failure:5```或者```--restart=always```参数即可
-
-```bash
-docker run -d --restart=on-failure:5 -it --name mcpe \
+### 关于网络性能和端口配置
+由于桥接模式会损失一定的性能，因此本文档的案例默认使用host网络连接模式 ```--net=host```，当然也可以使用桥接模式，把```--net=host```替换为```-p 12345:19132/udp```即可
+```
+docker run -itd --restart=always --name=mcpe -p 12345:19132/udp \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.12.0.28-r1
+  lomot/minecraft-bedrock:1.12.0.28-r1
 ```
-
-如果需要主机开机或重启时自动启动mc容器，将docker设为开机自启即可：
-```
-systemctl enable docker
-```
-
-### 减少网络性能损耗
-docker的网络性能损失主要是由于桥接网络造成的，把参数```-p 19132:19132/udp```去掉，加上```--net=host```就能解决问题。
-
-```bash
-docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft-bedrock:1.12.0.28-r1
-```
-
-此时如果要更换服务器端口，修改```server.properties```里面的配置即可。
+使用桥接模式时如果要更换服务器端口，直接把上面命令里面的 ```12345:19132/udp``` 的第一个端口号```12345```换成自己的端口就行了，```server.properties```里面的端口配置需要为```19132```。
 
 ### 安全地退出容器
 直接使用```docker stop mcpe```相当于强行退出游戏服务器，有可能损坏数据（但由于mc的数据是区块储存的，一般不会出现这个问题）。
@@ -161,6 +147,7 @@ docker run -d -it --name mcpe -v /opt/mcpe-data:/data --net=host lomot/minecraft
 
 ### 如何查看报错日志
 执行```docker logs mcpe```，可以查看容器的日志，如果服务器开启失败可以用这个命令查看报错日志。
+
 
 ### 删除无用的镜像
 
@@ -173,7 +160,13 @@ lomot/minecraft-bedrock   1.10.0.7-r2          05c48844d328        4 weeks ago  
 ```
 例如要删除旧的镜像```lomot/minecraft-bedrock:1.10.0.7-r2```，执行```docker image rm lomot/minecraft-bedrock:1.10.0.7-r2``` 即可
 
-## 部分报错处理
+### 主机重启自动启动minecraft服务
+将docker设为开机自启即可：
+```
+systemctl enable docker
+```
+
+## 部分报错/问题处理
 
 ### Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 这个是docker服务没打开，执行```systemctl start docker```即可
@@ -181,6 +174,16 @@ lomot/minecraft-bedrock   1.10.0.7-r2          05c48844d328        4 weeks ago  
 ```bash
 # 使开启docker开机自启
 systemctl enable docker
+```
+
+### 日志时间不正确 时区错误
+日志时间错误一般是容器内时区错误，在命令中加上```-v /etc/localtime:/etc/localtime```即可，具体如下
+
+```bash
+docker run -itd --restart=always --name=mcpe --net=host \
+  -v /opt/mcpe-data:/data \
+  -v /etc/localtime:/etc/localtime \
+  lomot/minecraft-bedrock:1.12.0.28-r1
 ```
 
 ## 问题反馈QQ群
