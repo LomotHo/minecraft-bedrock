@@ -11,7 +11,7 @@
 ![Docker Pulls]
 
 # a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.12.0.28-r1, lomot/minecraft-bedrock:1.12.0.28-debian-r1
+this documentation is for image lomot/minecraft-bedrock:1.12.0.28-r2, lomot/minecraft-bedrock:1.12.0.28-debian-r2
 
 ## Start a server quickly
 #### 1. install docker on your server
@@ -33,7 +33,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.12.0.28-r1
+  lomot/minecraft-bedrock:1.12.0.28-r2
 ```
 
 ## Upgrade the server
@@ -56,7 +56,7 @@ docker container rm mcpe
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.12.0.28-r1
+  lomot/minecraft-bedrock:1.12.0.28-r2
 ```
 
 
@@ -77,7 +77,7 @@ docker container stop/start/restart/rm mcpe
 ```bash
 docker run -d --restart=on-failure:5 -it --name mcpe \
   -v /opt/mcpe-data:/data \
-  -p 19132:19132/udp lomot/minecraft-bedrock:1.12.0.28-r1
+  -p 19132:19132/udp lomot/minecraft-bedrock:1.12.0.28-r2
 ``` -->
 ### change the port
 ~~do NOT change the port configuration of ```server.properties``` file, just change the frist 19132 of parameter```19132:19132/udp```~~

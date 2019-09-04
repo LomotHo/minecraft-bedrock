@@ -11,7 +11,7 @@
 ![Docker Pulls]
 
 # 基于docker的bedrock minecraft PE 服务器
-当前服务器核心版本: 1.12.0.28 镜像版本: lomot/minecraft-bedrock:1.12.0.28-r2, lomot/minecraft-bedrock:1.12.0.28-debian-r2
+当前服务器核心版本: 1.12.1.1 镜像版本: lomot/minecraft-bedrock:1.12.1.1-r1, lomot/minecraft-bedrock:1.12.1.1-debian-r1
 
 ## 快速开启服务器
 
@@ -42,7 +42,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.12.0.28-r2
+  lomot/minecraft-bedrock:1.12.1.1-r1
 ```
 如果发现目录写错了或者要换目录，可以先执行下面的命令关闭并删除刚刚开启的容器，然后再重新开启服务器
 
@@ -76,7 +76,7 @@ docker rm mcpe
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.12.0.28-r2
+  lomot/minecraft-bedrock:1.12.1.1-r1
 ```
 记得把命令里面的```/opt/mcpe-data```换成你自己的目录
 
@@ -138,7 +138,7 @@ docker run -itd --restart=always --name=mcpe --net=host \
 ```
 docker run -itd --restart=always --name=mcpe -p 12345:19132/udp \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.12.0.28-r2
+  lomot/minecraft-bedrock:1.12.1.1-r1
 ```
 使用桥接模式时如果要更换服务器端口，直接把上面命令里面的 ```12345:19132/udp``` 的第一个端口号```12345```换成自己的端口就行了，```server.properties```里面的端口配置需要为```19132```。
 
@@ -185,7 +185,7 @@ systemctl enable docker
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
   -v /etc/localtime:/etc/localtime \
-  lomot/minecraft-bedrock:1.12.0.28-r2
+  lomot/minecraft-bedrock:1.12.1.1-r1
 ```
 
 ## 问题反馈QQ群
