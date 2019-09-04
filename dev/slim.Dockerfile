@@ -22,9 +22,11 @@ COPY ./script $SCRIPT_PATH
 
 
 ##################  for relaese  #########################
-FROM debian:buster-slim as production
+# FROM debian:buster-slim as production
+FROM ubuntu:18.04 as production
 
 # install packages & config docker
+COPY ./profile/container/sources.list /etc/apt/
 # COPY ./profile/container/.tmux.conf /root
 RUN apt-get update && \
   apt-get -y install libcurl4 && \
