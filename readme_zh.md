@@ -11,7 +11,7 @@
 ![Docker Pulls]
 
 # 基于docker的bedrock minecraft PE 服务器
-当前服务器核心版本: 1.13.0.34 镜像版本: lomot/minecraft-bedrock:1.13.0.34-r1
+当前服务器核心版本: 1.13.0.34 镜像版本: lomot/minecraft-bedrock:1.13.0.34-r1, （debian标签并入主线标签）
 
 ## 快速开启服务器
 
