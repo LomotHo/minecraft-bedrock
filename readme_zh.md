@@ -8,7 +8,7 @@
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 
-[中文文档] | [旧版文档] | [English doc] | [buy me a coffee]
+[中文文档] | [旧版文档] | [English doc] | [捐助]
 
 ![Docker Pulls]
 
