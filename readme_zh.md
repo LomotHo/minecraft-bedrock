@@ -3,12 +3,12 @@
 [中文文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 [捐助]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/donation.md
-[donation]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/donation.md
+[buy me a coffee]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/donation.md
 [Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 
-[中文文档] | [旧版文档] | [English doc] | [donation]
+[中文文档] | [旧版文档] | [English doc] | [buy me a coffee]
 
 ![Docker Pulls]
 
