@@ -86,7 +86,7 @@ using bridge networks will decrease the network performance, it is supposed to u
 ### about addon, behavior_packs, resource_packs
 there are too many files about addons to configure, so I made another image, to use this image, you need to manage server folder by yourself, such as update and configuration files, you can dowload the server files here [Minecraft server].
 
-how tu use:
+how to use:
 
 
 ```bash
