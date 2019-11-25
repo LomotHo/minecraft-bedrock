@@ -9,7 +9,7 @@
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 
 
-[English doc] | [Older version] | [中文文档] | [buy me a coffee]
+[English doc] | [Older version] | [中文文档]
 
 ![Docker Pulls]
 
