@@ -13,7 +13,7 @@
 ![Docker Pulls]
 
 # a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.14.0.9
+this documentation is for image lomot/minecraft-bedrock:1.14.1.4
 
 ## Start a server quickly
 #### 1. install docker on your server
@@ -35,7 +35,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.14.0.9
+  lomot/minecraft-bedrock:1.14.1.4
 ```
 
 ## Upgrade the server
@@ -58,7 +58,7 @@ docker container rm mcpe
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.14.0.9
+  lomot/minecraft-bedrock:1.14.1.4
 ```
 
 
