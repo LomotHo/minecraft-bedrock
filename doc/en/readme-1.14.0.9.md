@@ -7,14 +7,13 @@
 [Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
-[Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
 
 [English doc] | [Older version] | [中文文档] | [buy me a coffee]
 
 ![Docker Pulls]
 
 # a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.14.1.4
+this documentation is for image lomot/minecraft-bedrock:1.14.0.9
 
 ## Start a server quickly
 #### 1. install docker on your server
@@ -36,7 +35,7 @@ mkdir -p /opt/mcpe-data
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.14.1.4
+  lomot/minecraft-bedrock:1.14.0.9
 ```
 
 ## Upgrade the server
@@ -59,7 +58,7 @@ docker container rm mcpe
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
   -v /opt/mcpe-data:/data \
-  lomot/minecraft-bedrock:1.14.1.4
+  lomot/minecraft-bedrock:1.14.0.9
 ```
 
 

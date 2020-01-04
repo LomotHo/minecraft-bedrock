@@ -7,7 +7,6 @@
 [Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
-[Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
 
 [English doc] | [Older version] | [中文文档] | [buy me a coffee]
 
