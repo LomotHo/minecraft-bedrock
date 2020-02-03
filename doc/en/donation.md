@@ -3,7 +3,7 @@
 [buy me a coffee](https://www.buymeacoffee.com/lomot)
 
 ## alipay
-<img width="auto" height="200" src="https://static-1251996892.cos.ap-guangzhou.myqcloud.com/donation/alipay.jpg"/>
+<img width="auto" height="200" src="https://static-1251996892.file.myqcloud.com/img/donation/alipay.jpg"/>
 
 ## thanks for donation
 

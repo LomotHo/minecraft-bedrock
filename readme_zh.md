@@ -9,7 +9,7 @@
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 [Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
 
-[中文文档] | [旧版文档] | [English doc] | [捐助]
+[中文文档] | [旧版文档] | [English doc]
 
 ![Docker Pulls]
 

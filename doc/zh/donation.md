@@ -1,7 +1,7 @@
 # buy me a coffee
 
 ## 捐助二维码
-<img width="auto" height="200" src="https://static-1251996892.cos.ap-guangzhou.myqcloud.com/donation/alipay.jpg" alt="alipay"/>
+<img width="auto" height="200" src="https://static-1251996892.file.myqcloud.com/img/donation/alipay.jpg" alt="alipay"/>
 
 ## 感谢以下捐助者
 
