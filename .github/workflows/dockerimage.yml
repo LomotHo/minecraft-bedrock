@@ -12,9 +12,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
-        docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
         docker build . --file Dockerfile --tag lomot/minecraft-bedrock:latest
     - name: upload image
       run: |
-        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:dev
-        docker push lomot/minecraft-bedrock:dev
+        docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
+        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:1.14.21.0
+        docker push lomot/minecraft-bedrock:latest
+        docker push lomot/minecraft-bedrock:1.14.21.0
