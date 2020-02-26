@@ -4,7 +4,7 @@
 [旧版文档]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
 [捐助]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/donation.md
 [buy me a coffee]:https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/donation.md
-[Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock.svg
+[Docker Pulls]:https://img.shields.io/docker/pulls/lomot/minecraft-bedrock?style=flat-square
 [How to install Docker]:https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [Minecraft server]:https://minecraft.net/en-us/download/server/bedrock/
 [Minecraft服务端下载]:https://minecraft.net/en-us/download/server/bedrock/
