@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-   mcpe: # container name
+   mcpe:
       build: .
       image: minecraft-bedrock:latest
       ports:
