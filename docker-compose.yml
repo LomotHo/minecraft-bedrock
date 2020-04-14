@@ -2,8 +2,8 @@ version: '3'
 
 services:
    mcpe:
-      build: .
-      image: minecraft-bedrock:latest
+      container_name: mcpe
+      image: lomot/minecraft-bedrock:latest
       ports:
          - 19132:19132/udp
       volumes:
