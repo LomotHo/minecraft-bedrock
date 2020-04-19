@@ -16,6 +16,8 @@
 # 基于docker的bedrock minecraft PE 服务器
 当前服务器核心版本: 1.14.60.5 镜像版本: lomot/minecraft-bedrock:1.14.60.5
 
+注意: 1.14.60.5版的linux服务端多了一个1.2G的```.debug```文件，删掉后发现没有异常，因此单独适配了一个删掉这个文件的分支: ```lomot/minecraft-bedrock:1.14.60.5-slim```，使用这个镜像可以节省一定的硬盘空间
+
 ## 快速开启服务器
 
 #### 1. 先在服务器上安装docker
