@@ -18,7 +18,6 @@ RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH && \
   mv $SERVER_PATH/permissions.json $DEFAULT_CONFIG_PATH/ && \
   mv $SERVER_PATH/server.properties $DEFAULT_CONFIG_PATH/ && \
   mv $SERVER_PATH/whitelist.json $DEFAULT_CONFIG_PATH/ && \
-  rm $SERVER_PATH/bedrock_server_realms.debug && \
   rm /tmp/bedrock.zip
 
 # COPY ./profile/mcpe $DEFAULT_CONFIG_PATH

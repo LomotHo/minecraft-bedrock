@@ -17,5 +17,5 @@ jobs:
       run: |
         CORE_VERSION=$(cat Dockerfile | grep "CORE_VERSION=" | cut -f2 -d \")
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${CORE_VERSION}-dev
-        docker push lomot/minecraft-bedrock:${CORE_VERSION}-dev
+        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${CORE_VERSION}
+        docker push lomot/minecraft-bedrock:${CORE_VERSION}
