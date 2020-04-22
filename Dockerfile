@@ -44,6 +44,11 @@ ENV SERVER_HOME="/mcpe" \
 
 COPY --from=builder $SERVER_HOME $SERVER_HOME
 
+RUN ln -sf $DATA_PATH/permissions.json $SERVER_PATH/permissions.json \
+  ln -sf $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json \
+  ln -sf $DATA_PATH/server.properties $SERVER_PATH/server.properties \
+  ln -sf $DATA_PATH/worlds $SERVER_PATH/worlds
+
 WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
