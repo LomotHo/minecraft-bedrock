@@ -48,5 +48,5 @@ WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
 # RUN
-ENTRYPOINT ["script/docker-entrypoint.sh"]
+ENTRYPOINT ["/mcpe/script/docker-entrypoint.sh"]
 CMD ["bedrock_server"]
