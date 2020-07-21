@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# create file if not exist
 if [ ! -f "$DATA_PATH/permissions.json" ]; then
   cp $DEFAULT_CONFIG_PATH/permissions.json $DATA_PATH/permissions.json
 fi
@@ -16,9 +17,9 @@ if [ ! -d "$DATA_PATH/worlds" ]; then
   mkdir -p $DATA_PATH/worlds
 fi
 
-ln -s $DATA_PATH/permissions.json $SERVER_PATH/permissions.json
-ln -s $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
-ln -s $DATA_PATH/server.properties $SERVER_PATH/server.properties
-ln -s $DATA_PATH/worlds $SERVER_PATH/worlds
+ln -sb $DATA_PATH/permissions.json $SERVER_PATH/permissions.json
+ln -sb $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
+ln -sb $DATA_PATH/server.properties $SERVER_PATH/server.properties
+ln -sb $DATA_PATH/worlds $SERVER_PATH/worlds
 
-exec $SERVER_PATH/bedrock_server
+exec "$@"
