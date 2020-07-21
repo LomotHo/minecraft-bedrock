@@ -49,4 +49,4 @@ EXPOSE 19132/udp
 
 # RUN
 ENTRYPOINT ["/mcpe/script/docker-entrypoint.sh"]
-CMD ["bedrock_server"]
+CMD ["/mcpe/server/bedrock_server"]
