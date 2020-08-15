@@ -13,25 +13,25 @@
 
 ![Docker Pulls]
 
-# a bedrock minecraft PE Server on docker
-this documentation is for image lomot/minecraft-bedrock:1.16.20.03
+# A bedrock Minecraft PE Server on Docker
+This documentation is for image lomot/minecraft-bedrock:1.16.20.03
 
-## Start a server quickly
-#### 1. install docker on your server
+## Start the server
+#### 1. Install Docker in your server
 
 ```bash
 apt install docker.io
 ```
 or you can follow this documentation : [How to install Docker]
 
-#### 2. create folder for server data
-this folder is for your map data and some configuration files, it contains ```permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the file will be created automatically, ```/opt/mcpe-data``` for an example
+#### 2. Create a folder for server data
+This folder is for your world data and some configuration files, it contains ```permissions.json```,```server.properties```,```whitelist.json```,```worlds```, if you use an empty folder, all the files will be created automatically, for example ```/opt/mcpe-data```
 
 ```bash
 mkdir -p /opt/mcpe-data
 ```
 
-#### 3. deploy the server
+#### 3. Deploy the server
 
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
@@ -40,21 +40,21 @@ docker run -itd --restart=always --name=mcpe --net=host \
 ```
 
 ## Upgrade the server
-#### 1. backup you data
+#### 1. Backup your data
 
-just backup the folder ```/opt/mcpe-data```
+Backup the folder ```/opt/mcpe-data```
 
 ```bash
 cp -r /opt/mcpe-data /opt/mcpe-data.bak
 ```
 
-#### 2. exit and delete the old server
+#### 2. Exit and delete the old container
 
 ```bash
 docker container stop mcpe
 docker container rm mcpe
 ```
-#### 3. start a new version server
+#### 3. Start a new container
 
 ```bash
 docker run -itd --restart=always --name=mcpe --net=host \
@@ -64,29 +64,29 @@ docker run -itd --restart=always --name=mcpe --net=host \
 
 
 ## Manage the server
-### enter or quit the game console
+### Enter or quit the game console
 ```bash
 docker attach mcpe
 ```
-press ```ctrl + p + q``` to quit
-do not use ```ctrl+c``` or ```ctrl+d```, this wii kill the process
+To quit, press ```ctrl + p + q```
 
-### stop/start/restart/rm the server
+Use ```ctrl + c``` or ```ctrl + d```to kill the process
+
+### Use this command to stop/start/restart/rm the server
 ```bash
 docker container stop/start/restart/rm mcpe
 ```
 
-### change the port
-~~do NOT change the port configuration of ```server.properties``` file, just change the frist 19132 of parameter```19132:19132/udp```~~
+### Change the server port
 
-Just change the ```server-port``` in the file```server.properties``` is OK.
+To change the server port, update ```server-port``` in the file```server.properties```
 
-using bridge networks will decrease the network performance, it is supposed to use host networks.
+Using bridge networks will decrease the network performance, it is supposed to use host networks.
 
-### about addon, behavior_packs, resource_packs
-there are too many files about addons to configure, so I made another image, to use this image, you need to manage server folder by yourself, such as update and configuration files, you can dowload the server files here [Minecraft server].
+### About addons, behavior_packs and resource_packs
+There are too many files about addons to configure, so I made another image, to use this image, you need to manage server folder by yourself, such as update and configuration files, you can download the server files here [Minecraft server].
 
-how to use:
+How to use:
 
 
 ```bash
