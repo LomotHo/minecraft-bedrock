@@ -1,9 +1,9 @@
-name: onTags
+name: OnTags
 
 on:
   push:
     tags:
-      - v*
+      - **
 
 jobs:
 
@@ -25,7 +25,7 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: set env
+    - name: Set env
       run: |
         echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
   
@@ -33,14 +33,12 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag lomot/minecraft-bedrock:latest
 
-    - name: upload image
+    - name: Upload image
       run: |
         CORE_VERSION=$(cat Dockerfile | grep "CORE_VERSION=" | cut -f2 -d \")
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
-        # docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${CORE_VERSION}
-        # docker push lomot/minecraft-bedrock:${CORE_VERSION}
-        # docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:dev
-        # docker push lomot/minecraft-bedrock:dev
-        echo "RELEASE_VERSION:" ${{ env.RELEASE_VERSION }}
-        echo "RELEASE_VERSION2:" ${RELEASE_VERSION }
+        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
+        docker push lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
+        # echo "RELEASE_VERSION:" ${{ env.RELEASE_VERSION }}
+        # echo "RELEASE_VERSION2:" ${RELEASE_VERSION }
 
