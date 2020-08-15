@@ -3,7 +3,6 @@ name: OnTags
 on:
   push:
     tags:
-      - **
 
 jobs:
 
