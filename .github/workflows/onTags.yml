@@ -25,15 +25,17 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Set env
-      run: |
-        echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_REF:10})
-  
+    - name: Set meta data
+      id: meta
+      run: echo ::set-output name=tag::${GITHUB_REF:10}
+
     - name: Build image
       run: |
         docker build . --file Dockerfile --tag lomot/minecraft-bedrock:latest
 
     - name: Upload image
+      env:
+        RELEASE_VERSION: ${{ steps.meta.outputs.tag }}
       run: |
         CORE_VERSION=$(cat Dockerfile | grep "CORE_VERSION=" | cut -f2 -d \")
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
