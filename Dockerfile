@@ -7,7 +7,7 @@ ENV SERVER_HOME="/mcpe" \
   SCRIPT_PATH="/mcpe/script" \
   DEFAULT_CONFIG_PATH="/mcpe/default-config" \
   DATA_PATH="/data"
-ENV CORE_VERSION="1.16.100.04" \
+ENV CORE_VERSION="1.16.200.02" \
   IMAGE_VERSION="1"
 # unzip pack
 RUN apk --no-cache add unzip wget && \
@@ -30,9 +30,9 @@ FROM debian:10-slim as production
 
 # install packages & config docker
 RUN apt-get update && \
- apt-get -y install libcurl4 && \
- apt-get -y autoremove && \
- apt-get clean
+  apt-get -y install libcurl4 && \
+  apt-get -y autoremove && \
+  apt-get clean
 
 # config server
 ENV LD_LIBRARY_PATH .
