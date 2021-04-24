@@ -1,6 +1,6 @@
-FROM lomot/minecraft-bedrock:1.16.210.05
+FROM wilder/minecraft-bedrock:1.16.220.01
 
-ENV CORE_VERSION "1.16.210.05"
+ENV CORE_VERSION "1.16.220.01"
 #ENV SERVER_PATH /mcpe/server
 #ENV SCRIPT_PATH /mcpe/script
 #ENV DATA_PATH /data

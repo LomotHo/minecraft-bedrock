@@ -15,6 +15,7 @@
 *.sublime-workspace
 nbproject
 Thumbs.db
+images
 
 # Numerous always-ignore extensions
 *.diff
