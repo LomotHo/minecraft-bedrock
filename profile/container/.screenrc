@@ -1,0 +1,2 @@
+defscrollback 15000
+termcapinfo xterm* ti@:te@

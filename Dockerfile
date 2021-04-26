@@ -31,9 +31,11 @@ RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH \
 # Add custom entrypoint scripts
 # COPY ./profile/mcpe/configs/$MCPE_SERVER_CONFIG $DEFAULT_CONFIG_PATH
 # COPY ./profile/mcpe/scripts $SCRIPT_PATH
-COPY profile/mcpe/scripts/docker-entrypoint__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint-nodev.sh
-COPY profile/mcpe/scripts/docker-entrypoint-dev__mod__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint-dev.sh
-COPY profile/mcpe/scripts/docker-entrypoint__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint.sh
+COPY profile/mcpe/scripts/docker-entrypoint__with-tmux.sh ${SCRIPT_PATH}/docker-entrypoint-nodev.sh
+COPY profile/mcpe/scripts/docker-entrypoint-dev__mod__with-tmux.sh ${SCRIPT_PATH}/docker-entrypoint-dev.sh
+COPY profile/mcpe/scripts/docker-entrypoint__with-tmux.sh ${SCRIPT_PATH}/docker-entrypoint-tmux.sh
+COPY profile/mcpe/scripts/docker-entrypoint-orig.sh ${SCRIPT_PATH}/docker-entrypoint-orig.sh
+COPY profile/mcpe/scripts/docker-entrypoint-orig.sh ${SCRIPT_PATH}/docker-entrypoint.sh
 RUN chmod +x ${SCRIPT_PATH}/*.sh
 
 
@@ -65,6 +67,7 @@ COPY --from=builder $SERVER_HOME $SERVER_HOME
 # Add shell environment config files
 COPY profile/container/.bashrc /root/.bashrc
 COPY profile/container/.tmux.conf /root/.tmux.conf
+COPY profile/container/.screenrc /root/.screenrc
 COPY profile/container/.vimrc /root/.vimrc
 
 
@@ -72,5 +75,4 @@ WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
 # RUN
-ENTRYPOINT ["${SCRIPT_PATH}/docker-entrypoint.sh"]
-CMD ["${SERVER_PATH}/bedrock_server"]
+CMD ["/mcpe/script/docker-entrypoint.sh", "/mcpe/server/bedrock_server"]

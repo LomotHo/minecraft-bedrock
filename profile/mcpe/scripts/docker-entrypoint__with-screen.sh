@@ -22,9 +22,5 @@ ln -sb $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
 ln -sb $DATA_PATH/server.properties $SERVER_PATH/server.properties
 ln -sb $DATA_PATH/worlds $SERVER_PATH/worlds
 
-# Modding this file so that I can run the "start-dev.sh" script. Should make a new Dockerfile and redefine CMD, but doing it here instead.
-echo "Running Chris's development server"
-
-
 #exec "$@"
 screen -s /bin/bash -dmS mcpe_session "$@"

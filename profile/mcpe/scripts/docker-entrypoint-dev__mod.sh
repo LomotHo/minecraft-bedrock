@@ -56,6 +56,6 @@ ln -sb $DATA_PATH/extra/$CORE_VERSION/treatments $SERVER_PATH/treatments
 ln -sb $DATA_PATH/extra/$CORE_VERSION/valid_known_packs.json $SERVER_PATH/valid_known_packs.json
 
 # Modding this file so that I can run the "start-dev.sh" script. Should make a new Dockerfile and redefine CMD, but doing it here instead.
-echo "Running Chris's development server"
+echo "Running development server"
 
 exec "$@"

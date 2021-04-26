@@ -40,4 +40,5 @@ ln -sb $DATA_PATH/extra/$CORE_VERSION/resource_packs $SERVER_PATH/resource_packs
 # Modding this file so that I can run the "start-dev.sh" script. Should make a new Dockerfile and redefine CMD, but doing it here instead.
 echo "Running development server"
 
-exec "$@"
+#exec "$@"
+tmux new -d -s mcpe "$@"

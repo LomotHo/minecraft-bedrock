@@ -59,4 +59,4 @@ ln -sb $DATA_PATH/extra/$CORE_VERSION/valid_known_packs.json $SERVER_PATH/valid_
 echo "Running development server"
 
 #exec "$@"
-screen -s /bin/bash -dmS mcpe_session "$@"
+tmux new -d -s mcpe "$@"

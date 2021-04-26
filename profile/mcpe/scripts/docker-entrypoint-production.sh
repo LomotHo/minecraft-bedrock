@@ -22,6 +22,4 @@ ln -sb $DATA_PATH/whitelist.json $SERVER_PATH/whitelist.json
 ln -sb $DATA_PATH/server.properties $SERVER_PATH/server.properties
 ln -sb $DATA_PATH/worlds $SERVER_PATH/worlds
 
-chmod +x $SERVER_PATH/bedrock_server
-
 exec "$@"
