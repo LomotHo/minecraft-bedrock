@@ -1,6 +1,8 @@
 # for this repo
 .dev_temp/
 orig
+mcpe-data
+dev/bedrock-server-*
 
 # Temporarily ignore
 KSDS.README.md

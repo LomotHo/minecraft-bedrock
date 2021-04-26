@@ -101,3 +101,15 @@ __TODO: Add content__
  	- Downloading viw web UI requires EULA acknowledgement via checkbox. The server can be downloaded directly via download URLs below. Therefore, by-passing the EULA agreement. In the future, an automatic release download may need to be able to agree to the EULA before the URL is allowed and/or a Captcha may be used.
  * [Download Minecraft Bedrock version 1.16.220.01 for linux](https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.221.01.zip)
  * [Download Minecraft Bedrock version 1.16.220.01 for Windows](https://minecraft.azureedge.net/bin-win/bedrock-server-1.16.221.01.zip)
+
+
+## tmux scratch
+
+```bash
+tmux new  -s mcpe "/mcpe/script/docker-entrypoint-noscreen.sh /mcpe/server/bedrock_server"
+```
+
+## WTFs
+
+ * Dockerfiles
+ 	- Environment variables used to define ```ENTRYPOINT``` and ```CMD``` are not resolved. I used the expansion variable format ```${VARIABLE_NAME}``` to specify the variables and was using Docker Desktop + MacBook Pro 2020 (Intel)
