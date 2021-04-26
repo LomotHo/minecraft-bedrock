@@ -47,7 +47,7 @@ RUN apt-get update \
   && apt-get -y install libcurl4 \
   && apt-get -y install screen vim procps file htop \
   && apt-get -y install tree tmux tcpdump sed grep gawk ack \
-  && apt-get -y install autoremove \
+  && apt-get -y autoremove \
   && apt-get clean
 
 # config server
