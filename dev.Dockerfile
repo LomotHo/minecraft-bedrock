@@ -33,7 +33,7 @@ RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH \
 # COPY ./profile/mcpe/scripts $SCRIPT_PATH
 COPY profile/mcpe/scripts/docker-entrypoint__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint-nodev.sh
 COPY profile/mcpe/scripts/docker-entrypoint-dev__mod__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint-dev.sh
-COPY profile/mcpe/scripts/docker-entrypoint__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint.sh
+COPY profile/mcpe/scripts/docker-entrypoint-dev__mod__with-screen.sh ${SCRIPT_PATH}/docker-entrypoint.sh
 RUN chmod +x ${SCRIPT_PATH}/*.sh
 
 
@@ -72,5 +72,6 @@ WORKDIR ${SERVER_PATH}
 EXPOSE 19132/udp
 
 # RUN
-ENTRYPOINT ["${SCRIPT_PATH}/docker-entrypoint.sh"]
-CMD ["${SERVER_PATH}/bedrock_server"]
+#ENTRYPOINT ["/mcpe/script/docker-entrypoint.sh"]
+#CMD ["/mcpe/server/bedrock_server"]
+CMD ["/mcpe/script/docker-entrypoint.sh", "/mcpe/server/bedrock_server"]

@@ -1,15 +1,10 @@
 [english doc]: https://github.com/LomotHo/minecraft-bedrock
 [older version]: https://github.com/LomotHo/minecraft-bedrock/tree/master/doc/en
-[中文文档]: https://github.com/LomotHo/minecraft-bedrock/blob/master/readme_zh.md
-[旧版文档]: https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/
-[捐助]: https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/donation.md
-[buy me a coffee]: https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/donation.md
 [docker pulls]: https://img.shields.io/docker/pulls/lomot/minecraft-bedrock?style=flat-square
 [how to install docker]: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [minecraft server]: https://minecraft.net/en-us/download/server/bedrock/
-[minecraft服务端下载]: https://minecraft.net/en-us/download/server/bedrock/
 
-[English doc] | [Older version] | [中文文档]
+[English doc] | [Older version]
 
 ![Docker Pulls]
 
