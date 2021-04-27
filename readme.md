@@ -78,6 +78,7 @@ __TODO: Add content__
 	- ```start.sh```
 	- ```start-entrypoint-override.sh```
 	- ```start-entrypoint-override-nodaemon.sh```
+	- ```dev/tmux``` and subdirectories
  * Clean up the content of the files in the directories:
  	- ```doc```
  		+ Update URL to point to our servers
@@ -88,6 +89,7 @@ __TODO: Add content__
  		+ should define a production environment and only have exactly what is needed to run (e.g. not extra entrypoint scripts, etc.)
  	- ```dev.Dockerfile``` 
  		+ should contain all the extra configurations, app, etc. needed for research and development
+ * Use the ```dev/tmux``` variation as the base image.
 
 # Default volume location
 ```

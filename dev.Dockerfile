@@ -1,3 +1,8 @@
+# **************************************************
+# TODOs
+#   - this file should extend the base Dockerfile; (e.g. FROM wilder/minecraft-bedrock:latest)
+#     - only include changes specific for development 
+# **************************************************
 ##################  for dev  #########################
 FROM alpine:latest as builder
 
@@ -31,9 +36,10 @@ RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH \
 # Add custom entrypoint scripts
 # COPY ./profile/mcpe/configs/$MCPE_SERVER_CONFIG $DEFAULT_CONFIG_PATH
 # COPY ./profile/mcpe/scripts $SCRIPT_PATH
-COPY profile/mcpe/scripts/docker-entrypoint.sh ${SCRIPT_PATH}/docker-entrypoint-nodev.sh
-COPY profile/mcpe/scripts/docker-entrypoint-dev__mod.sh ${SCRIPT_PATH}/docker-entrypoint-dev.sh
-COPY profile/mcpe/scripts/docker-entrypoint-dev__mod.sh ${SCRIPT_PATH}/docker-entrypoint.sh
+COPY profile/container/scripts/docker-entrypoint.sh ${SCRIPT_PATH}/docker-entrypoint-nodev.sh
+COPY profile/container/scripts/docker-entrypoint-dev.sh ${SCRIPT_PATH}/docker-entrypoint-dev.sh
+COPY profile/container/scripts/docker-entrypoint-dev-mod.sh ${SCRIPT_PATH}/docker-entrypoint-dev-mod.sh
+COPY profile/container/scripts/docker-entrypoint-dev-mod.sh ${SCRIPT_PATH}/docker-entrypoint.sh
 RUN chmod +x ${SCRIPT_PATH}/*.sh
 
 
