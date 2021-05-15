@@ -1,6 +1,11 @@
 # for this repo
 .dev_temp/
+orig
+mcpe-data
+dev/bedrock-server-*
 
+# Temporarily ignore
+KSDS.README.md
 
 # OS or Editor folders
 ._*
@@ -15,6 +20,7 @@
 *.sublime-workspace
 nbproject
 Thumbs.db
+images
 
 # Numerous always-ignore extensions
 *.diff
