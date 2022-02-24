@@ -17,7 +17,7 @@ RUN apk --no-cache add unzip wget && \
 RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH && \
   mv $SERVER_PATH/permissions.json $DEFAULT_CONFIG_PATH/ && \
   mv $SERVER_PATH/server.properties $DEFAULT_CONFIG_PATH/ && \
-  mv $SERVER_PATH/whitelist.json $DEFAULT_CONFIG_PATH/ && \
+  # mv $SERVER_PATH/whitelist.json $DEFAULT_CONFIG_PATH/ && \
   rm /tmp/bedrock.zip
 
 # COPY ./profile/mcpe $DEFAULT_CONFIG_PATH
