@@ -29,7 +29,7 @@ or you can follow this documentation : [How to install Docker]
 
 #### 2. Create a folder for server data
 
-This folder is for your world data and some configuration files, it contains `permissions.json`,`server.properties`,`whitelist.json`,`worlds`, if you use an empty folder, all the files will be created automatically, for example `/opt/mcpe-data`
+This folder is for your world data and some configuration files, it contains `permissions.json`,`server.properties`,`allowlist.json`,`worlds`, if you use an empty folder, all the files will be created automatically, for example `/opt/mcpe-data`
 
 ```bash
 mkdir -p /opt/mcpe-data
