@@ -15,6 +15,7 @@ RUN apk --no-cache add unzip wget && \
   mkdir -p $DEFAULT_CONFIG_PATH && \
   wget -nv https://minecraft.azureedge.net/bin-linux/bedrock-server-$CORE_VERSION.zip -O /tmp/bedrock.zip
 RUN unzip -q /tmp/bedrock.zip -d $SERVER_PATH && \
+  rm -rf $SERVER_PATH/bedrock_server_symbols.debug && \
   mv $SERVER_PATH/permissions.json $DEFAULT_CONFIG_PATH/ && \
   mv $SERVER_PATH/server.properties $DEFAULT_CONFIG_PATH/ && \
   mv $SERVER_PATH/allowlist.json $DEFAULT_CONFIG_PATH/ && \
