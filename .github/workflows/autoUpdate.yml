@@ -19,7 +19,7 @@ jobs:
         bash ./script/auto-update.sh
 
     - name: Publish Image
-      if: ${{ env.RELEASE_VERSION != '' }}
+      if: ${{ env.HAS_UPDATE }}
       run: |
         echo "building ${{ env.RELEASE_VERSION }}"
         docker build . --file Dockerfile --tag lomot/minecraft-bedrock:latest
@@ -29,7 +29,7 @@ jobs:
         exit
 
     - name: Push Commit
-      if: ${{ env.RELEASE_VERSION != '' && env.RELEASE_VERSION != 'debug'}}
+      if: ${{ env.HAS_UPDATE && env.RELEASE_VERSION != 'debug'}}
       run: |
         git config --global user.name "Update Bot"
         # git config --global user.email "lomot@qq.com"
@@ -39,7 +39,7 @@ jobs:
         git push --tag
 
     - name: Create Release
-      if: ${{ env.RELEASE_VERSION != '' && env.RELEASE_VERSION != 'dev' && env.RELEASE_VERSION != 'debug' }}
+      if: ${{ env.HAS_UPDATE && env.RELEASE_VERSION != 'debug' }}
       id: create_release
       uses: actions/create-release@v1
       env:
