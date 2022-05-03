@@ -8,18 +8,16 @@ function LogWarn() { echo -e "\033[33m[warning] $1\033[0m"; }
 
 webcontent=$(curl -A "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)" -s 'https://www.minecraft.net/en-us/download/server/bedrock')
 NEW_VERSION=$(echo $webcontent | grep "https://minecraft.azureedge.net/bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
-OLD_VERSION=$(cat ${REPO_PATH}/VERSION)
-
-# NEW_VERSION="debug"
-LogWarn "debug mode"
-echo "HAS_UPDATE=true" >>$GITHUB_ENV
-echo "RELEASE_VERSION=d114514" >>$GITHUB_ENV
-exit 0
-
 LogInfo "get newest version: $NEW_VERSION"
-
 REPO_PATH=.
+OLD_VERSION=$(cat ${REPO_PATH}/VERSION)
 version_reg='^1(\.[0-9]+){3}$'
+
+# # NEW_VERSION="debug"
+# LogWarn "debug mode"
+# echo "HAS_UPDATE=true" >>$GITHUB_ENV
+# echo "RELEASE_VERSION=d114514" >>$GITHUB_ENV
+# exit 0
 
 if [[ ! "$NEW_VERSION" =~ $version_reg ]]; then
   LogError 'get NEW_VERSION ERROR, exit'
