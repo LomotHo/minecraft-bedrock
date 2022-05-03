@@ -1,9 +1,9 @@
 name: Auto Update Bot
  
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   schedule:
     - cron: '20 13 * * *'
 
@@ -26,6 +26,7 @@ jobs:
         docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
         docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
         docker push lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
+        docker push lomot/minecraft-bedrock:latest
         exit
 
     - name: Push Commit
