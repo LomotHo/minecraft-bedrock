@@ -1,0 +1,51 @@
+name: Auto Update Bot
+ 
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '20 13 * * *'
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check Update
+      run: |
+        git config --global user.name "Update Bot"
+        git config --global user.email "lomot@qq.com"
+        bash ./script/auto-update.sh
+
+    - name: Publish Image
+      if: ${{ env.RELEASE_VERSION != '' }}
+      run: |
+        echo "building ${{ env.RELEASE_VERSION }}"
+        docker build . --file Dockerfile --tag lomot/minecraft-bedrock:latest
+        docker login --username=${{ secrets.DOCKER_ID }} --password=${{ secrets.DOCKER_TOKEN }}
+        docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
+        docker push lomot/minecraft-bedrock:${{ env.RELEASE_VERSION }}
+        exit
+
+    - name: Push Commit
+      if: ${{ env.RELEASE_VERSION != '' && env.RELEASE_VERSION != 'debug'}}
+      run: |
+        git config --global user.name "Update Bot"
+        # git config --global user.email "lomot@qq.com"
+        git add . && git commit -am "update to ${{ env.RELEASE_VERSION }}"
+        git push
+        git tag ${{ env.RELEASE_VERSION }}
+        git push --tag
+
+    - name: Create Release
+      if: ${{ env.RELEASE_VERSION != '' && env.RELEASE_VERSION != 'dev' && env.RELEASE_VERSION != 'debug' }}
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ env.RELEASE_VERSION }}
+        release_name: Release ${{ env.RELEASE_VERSION }}
+        draft: false
+        prerelease: false

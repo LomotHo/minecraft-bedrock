@@ -1,7 +1,6 @@
 # for this repo
 .dev_temp/
 
-
 # OS or Editor folders
 ._*
 .cache
@@ -31,5 +30,6 @@ Thumbs.db
 # Folders to ignore
 bower_components
 node_modules
+.tmp
 
 # python
