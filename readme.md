@@ -5,13 +5,14 @@
 [捐助]: https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/zh/donation.md
 [buy me a coffee]: https://github.com/LomotHo/minecraft-bedrock/blob/master/doc/en/donation.md
 [docker pulls]: https://img.shields.io/docker/pulls/lomot/minecraft-bedrock?style=flat-square
+[auto update build]: https://github.com/LomotHo/minecraft-bedrock/actions/workflows/autoUpdate.yml/badge.svg
 [how to install docker]: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [minecraft server]: https://minecraft.net/en-us/download/server/bedrock/
 [minecraft服务端下载]: https://minecraft.net/en-us/download/server/bedrock/
 
 [English doc] | [Older version] | [中文文档]
 
-![Docker Pulls]
+![Docker Pulls] ![Auto Update Build]
 
 # A bedrock Minecraft PE Server on Docker
 
