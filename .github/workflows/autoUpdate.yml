@@ -6,6 +6,7 @@ on:
   #     - master
   schedule:
     - cron: '20 */8 * * *'
+  workflow_dispatch:
 
 jobs:
   auto-update:
