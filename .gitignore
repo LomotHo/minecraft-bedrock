@@ -1,5 +1,6 @@
 # for this repo
 .dev_temp/
+tmp
 
 # OS or Editor folders
 ._*
