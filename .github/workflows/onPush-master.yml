@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Build the Docker image
       run: |
@@ -27,3 +27,13 @@ jobs:
         # docker push lomot/minecraft-bedrock:${CORE_VERSION}
         docker tag lomot/minecraft-bedrock:latest lomot/minecraft-bedrock:dev
         docker push lomot/minecraft-bedrock:dev
+
+    - name: Set meta data
+      id: meta
+      # uptated at 2023/02/09
+      # fix reason: Deprecated set-output
+      # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+      # run: echo ::set-output name=tag::${GITHUB_REF:10}
+      run: |
+        echo "name=tag::${GITHUB_REF:10}" >> $GITHUB_ENV
+        echo ${{ steps.meta.outputs.tag }}

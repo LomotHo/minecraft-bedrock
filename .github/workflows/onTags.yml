@@ -27,7 +27,13 @@ jobs:
 
     - name: Set meta data
       id: meta
-      run: echo ::set-output name=tag::${GITHUB_REF:10}
+      # uptated at 2023/02/09
+      # fix reason: Deprecated set-output
+      # https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+      # run: echo ::set-output name=tag::${GITHUB_REF:10}
+      run: |
+        echo "name=tag::${GITHUB_REF:10}" >> $GITHUB_ENV
+        echo ${{ steps.meta.outputs.tag }}
 
     - name: Build image
       run: |
