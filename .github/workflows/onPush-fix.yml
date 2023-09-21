@@ -1,4 +1,4 @@
-name: OnPush master & upload dev image
+name: OnPush fix
 
 on:
   push:
