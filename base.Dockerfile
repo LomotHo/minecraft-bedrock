@@ -1,4 +1,5 @@
-FROM debian:buster-slim
+# FROM debian:buster-slim
+FROM ubuntu:22.04 as production
 
 # Install packages & config docker
 RUN apt-get update && \
