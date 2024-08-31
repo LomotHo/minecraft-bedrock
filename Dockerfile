@@ -26,13 +26,11 @@ COPY ./script $SCRIPT_PATH
 
 
 ##################  for relaese  #########################
-# FROM ubuntu:18.04 as production
-# FROM debian:10-slim as production
 FROM ubuntu:22.04 as production
 
 # install packages & config docker
 RUN apt-get update && \
-  apt-get -y install libcurl4 && \
+  apt-get -y install libcurl4 tzdata && \
   apt-get -y autoremove && \
   apt-get clean
 
