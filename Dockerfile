@@ -10,7 +10,7 @@ ENV SERVER_HOME="/mcpe" \
 ENV CORE_VERSION="1.21.30.03" \
   IMAGE_VERSION="1"
 # unzip pack
-RUN apk --no-cache add unzip wget && \
+RUN apk --no-cache add unzip wget curl && \
   mkdir -p $SERVER_PATH && \
   mkdir -p $DEFAULT_CONFIG_PATH
 RUN curl https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-$CORE_VERSION.zip \
