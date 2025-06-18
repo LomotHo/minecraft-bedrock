@@ -6,8 +6,11 @@ function LogError() { echo -e "\033[31m[error] $1\033[0m"; }
 function LogWarn() { echo -e "\033[33m[warning] $1\033[0m"; }
 # function LogDebug() { echo -e "\033[37m[debug] $1\033[0m"; }
 
-webcontent=$(curl -A "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)" -s 'https://www.minecraft.net/en-us/download/server/bedrock')
-NEW_VERSION=$(echo "$webcontent" | grep "bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
+# webcontent=$(curl -A "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)" -s 'https://www.minecraft.net/en-us/download/server/bedrock')
+# NEW_VERSION=$(echo "$webcontent" | grep "bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
+links_data=$(curl "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links")
+NEW_VERSION=$(echo "$links_data" | grep "bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
+
 LogInfo "get newest version: $NEW_VERSION"
 REPO_PATH=.
 OLD_VERSION=$(cat ${REPO_PATH}/VERSION)
