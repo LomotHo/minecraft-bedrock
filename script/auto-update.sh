@@ -10,7 +10,7 @@ function LogWarn() { echo -e "\033[33m[warning] $1\033[0m"; }
 # NEW_VERSION=$(echo "$webcontent" | grep "bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
 links_data=$(curl "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links")
 echo $links_data
-NEW_VERSION=$(echo "$links_data" | grep "bin-linux/bedrock-server-" | sed 's/^.*bedrock-server-//g' | sed 's/.zip.*$//g')
+NEW_VERSION=$(echo "$links_data" | grep "bin-linux/bedrock-server-" | sed 's/^.*bin-linux\/bedrock-server-//g' | sed 's/.zip.*$//g')
 
 LogInfo "get newest version: $NEW_VERSION"
 REPO_PATH=.
